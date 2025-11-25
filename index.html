@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -46,6 +46,15 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
+        /* Estilo para los select (para mayor visibilidad) */
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236B7280'%3e%3cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1.5em 1.5em;
+        }
+
         html { scroll-behavior: smooth; }
     </style>
 </head>
@@ -144,6 +153,25 @@
                                 <label for="email" class="sr-only" data-i18n="label_email">Correo Electrónico</label>
                                 <input type="email" id="email" name="email" required placeholder="Correo Electrónico" class="block w-full rounded-md border-gray-300 bg-gray-50 border px-4 py-3 text-gray-900 focus:border-bdir-blue focus:ring-bdir-blue focus:outline-none transition-colors ring-1 ring-transparent focus:ring-2" data-i18n-placeholder="placeholder_email">
                             </div>
+
+                            <!-- START OF NEW FIELD: Método de Contacto Preferido (SELECT/DESPLEGABLE) -->
+                            <div class="space-y-1">
+                                <label for="contact_method" class="block text-sm font-semibold text-gray-700" data-i18n="label_contact_method">
+                                    ¿Cómo prefieres que te contactemos?
+                                </label>
+                                <div class="relative">
+                                    <select id="contact_method" name="metodo_contacto" required class="block w-full rounded-md border-gray-300 bg-gray-50 border px-4 py-3 text-gray-900 focus:border-bdir-blue focus:ring-bdir-blue focus:outline-none transition-colors ring-1 ring-transparent focus:ring-2">
+                                        <option value="Telefono" data-i18n="contact_phone">Teléfono</option>
+                                        <option value="WhatsApp">WhatsApp</option>
+                                        <option value="Email" data-i18n="contact_email">Email</option>
+                                    </select>
+                                    <!-- Icono de flecha personalizado para el select -->
+                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+                                        <i data-lucide="chevron-down" class="h-5 w-5"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END OF NEW FIELD -->
 
                             <button id="submit-btn" type="submit" class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-bdir-blue hover-bg-bdir-dark focus:outline-none focus:ring-2 focus:ring-offset-2 ring-bdir-blue uppercase tracking-wide transition-transform transform hover:scale-105 font-title">
                                 <span data-i18n="form_button">¡QUIERO INFORMACIÓN DE ALTA! >></span>
@@ -402,10 +430,11 @@
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 text-gray-500 text-sm">
-                    <div class="flex items-center space-x-2">
-                        <i data-lucide="map-pin" class="h-5 w-5 text-bdir-blue"></i>
+                    <!-- ENLACE DE DIRECCIÓN A GOOGLE MAPS -->
+                    <a href="https://maps.app.goo.gl/hYm4i5x86s1TjD5a6" target="_blank" class="flex items-center space-x-2 hover:text-bdir-blue transition-colors group cursor-pointer" aria-label="Abrir Google Maps con la dirección del gimnasio">
+                        <i data-lucide="map-pin" class="h-5 w-5 text-bdir-blue group-hover:scale-110 transition-transform"></i>
                         <span>Av. Pedrablanca S/N Local 7</span>
-                    </div>
+                    </a>
                     <div class="flex items-center space-x-2">
                         <i data-lucide="phone" class="h-5 w-5 text-bdir-blue"></i>
                         <span>93 754 87 47</span>
@@ -465,6 +494,15 @@
                 placeholder_phone: "Teléfono Móvil",
                 label_email: "Correo Electrónico",
                 placeholder_email: "Correo Electrónico",
+                // Traducciones para el nuevo campo de contacto (SELECT)
+                label_contact_method: "¿Cómo prefieres que te contactemos?",
+                contact_phone: "Teléfono",
+                contact_email: "Email",
+                // Traducciones para las opciones del select
+                option_phone: "Teléfono",
+                option_whatsapp: "WhatsApp",
+                option_email: "Email",
+                // Fin nuevas traducciones
                 form_button: "¡QUIERO INFORMACIÓN DE ALTA! >>",
                 form_sending: "ENVIANDO...",
                 form_privacy: "Tu privacidad es importante. No compartiremos tus datos.",
@@ -527,6 +565,15 @@
                 placeholder_phone: "Telèfon Mòbil",
                 label_email: "Correu Electrònic",
                 placeholder_email: "Correu Electrònic",
+                // Traducciones para el nuevo campo de contacto (SELECT)
+                label_contact_method: "Com prefereixes que et contactem?",
+                contact_phone: "Telèfon",
+                contact_email: "Email",
+                // Traducciones para las opciones del select
+                option_phone: "Telèfon",
+                option_whatsapp: "WhatsApp",
+                option_email: "Email",
+                // Fin nuevas traducciones
                 form_button: "VULL INFORMACIÓ D'ALTA! >>",
                 form_sending: "ENVIANT...",
                 form_privacy: "La teva privacitat és important. No compartirem les teves dades.",
@@ -546,7 +593,7 @@
                 bf_benefit_3_desc: "Més de 40 activitats dirigides (incloent-hi Entrenament Funcional).",
                 bf_cta_btn: "M'INTERESSA L'OFERTA BLACK FRIDAY!",
                 
-                // Tarifes Horàries (ACTUALIZADO)
+                // Tarifas Horàries (ACTUALIZADO)
                 tariffs_title: "O tria la tarifa que s'ajusta al teu horari",
                 tariffs_subtitle: "Màxima flexibilitat per entrenar només quan ho necessites, amb preus més ajustats.",
                 tariff_morning_title: "Morning",
@@ -563,7 +610,7 @@
                 
                 // Testimonio
                 social_proof_intro: "\"Més que un gimnàs, una comunitat dedicada al teu benestar.\"",
-                testimonial_quote: "\"Les instal·lacions són de 10, i l'ambient és immillorable. Vaig començar amb la tarifa Mid Dia i ara m'he passat a la Full Day. Totalment recomanable.\"",
+                testimonial_quote: "\"Les instal·lacions són de 10, i l'ambient és immillorable. Vaig començar amb la tarifa Mid Dia i ara me he passat a la Full Day. Totalment recomendable.\"",
                 
                 // CTA Final
                 cta_final_title: "No esperis més per començar el teu canvi.",
@@ -598,13 +645,22 @@
                     el.placeholder = translations[lang][key];
                 }
             });
+            
+            // C. Actualizar opciones del select (opciones con data-i18n)
+            const selectOptions = document.querySelectorAll('#contact_method option[data-i18n]');
+            selectOptions.forEach(option => {
+                const key = option.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    option.textContent = translations[lang][key];
+                }
+            });
 
-            // C. Actualizar botones activos y lang
+            // D. Actualizar botones activos y lang
             document.getElementById('btn-es').classList.toggle('active', lang === 'es');
             document.getElementById('btn-ca').classList.toggle('active', lang === 'ca');
             document.documentElement.lang = lang;
             
-            // D. Actualizar el enlace de WhatsApp
+            // E. Actualizar el enlace de WhatsApp
             const whatsappLink = document.getElementById('whatsapp-link-footer');
             const message = translations[lang]['whatsapp_message'];
             if (whatsappLink && message) {
@@ -612,7 +668,7 @@
                 whatsappLink.href = `https://wa.me/34682334580?text=${encodedMessage}`;
             }
             
-            // E. Actualizar el texto del botón del formulario al idioma actual
+            // F. Actualizar el texto del botón del formulario al idioma actual
             const currentPromo = document.getElementById('promocion_interes').value;
             updateFormButtonText(currentPromo, lang);
         }
@@ -631,11 +687,8 @@
             const btnSpan = btn.querySelector('span');
             const originalButtonText = translations[lang].form_button;
             
-            if (promoName === 'Alta General') {
+            if (promoName === 'Alta General' || promoName === 'Black Friday 6+2') {
                 btnSpan.innerHTML = originalButtonText;
-            } else if (promoName === 'Black Friday 6+2') {
-                 // Texto específico para Black Friday (No se llama directamente, se usa el CTA de la sección)
-                 btnSpan.innerHTML = originalButtonText;
             } else {
                 // Para tarifas horarias (Morning, Mid Dia, Nit, Cap de Setmana)
                 btnSpan.innerHTML = (lang === 'es' ? `Información ${promoName}` : `Informació ${promoName}`) + ' >>';
@@ -667,7 +720,10 @@
                 // Convertir FormData a un objeto plano para JSON.stringify
                 const data = {};
                 formData.forEach((value, key) => { data[key] = value; });
-
+                
+                // Añadir el idioma al que se envió el formulario
+                data['idioma_lead'] = currentLang.toUpperCase();
+                
                 const response = await fetch(formActionUrl, {
                     method: 'POST',
                     headers: {
@@ -684,13 +740,19 @@
                     window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll al éxito
                 } else {
                     // Manejo de errores de FormSubmit
-                    throw new Error(translations[currentLang].error_send || 'Error al enviar el formulario. Inténtalo de nuevo.');
+                    // Añadido un mensaje de error genérico si no existe una traducción específica
+                    const errorMessage = translations[currentLang].error_send || (currentLang === 'es' ? 'Error al enviar el formulario. Inténtalo de nuevo.' : 'Error en enviar el formulari. Torna-ho a intentar.');
+                    throw new Error(errorMessage);
                 }
             } catch (error) {
                 console.error('Error en el envío:', error);
-                // Mostrar alerta o mensaje de error en la UI (No usamos alert())
-                // En un entorno de producción se podría añadir un mensaje de error visible
-                alert('Hubo un problema al enviar la solicitud. Por favor, inténtalo de nuevo o contacta por teléfono.');
+                // Mostrar un mensaje de error visible, no usamos alert()
+                const errorContainer = form.parentNode.querySelector('.error-message') || document.createElement('p');
+                errorContainer.className = 'text-center text-sm text-red-500 mt-3 error-message';
+                errorContainer.textContent = error.message;
+                if (!form.parentNode.querySelector('.error-message')) {
+                    form.parentNode.insertBefore(errorContainer, form.nextSibling);
+                }
             } finally {
                 // Restaurar botón (Solo si no fue exitoso, si fue exitoso la vista cambia)
                 if (document.getElementById('success-view').classList.contains('hidden')) {

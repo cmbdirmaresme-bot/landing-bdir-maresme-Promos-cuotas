@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fisioteràpia Maresme - Valoración Gratis</title>
+    <title>BDiR Maresme - ¡Promociones Exclusivas de Alta de Socio!</title>
     
     <!-- 1. IMPORTAR TAILWIND CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,7 +21,7 @@
         body { font-family: 'Open Sans', sans-serif; }
         h1, h2, h3, h4, button, .font-title { font-family: 'Montserrat', sans-serif; }
         
-        /* Color azul BDiR personalizado (mantenido) */
+        /* Color azul BDiR personalizado */
         .text-bdir-blue { color: #009FE3; }
         .bg-bdir-blue { background-color: #009FE3; }
         .border-bdir-blue { border-color: #009FE3; }
@@ -46,19 +46,21 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
-        html { scroll-behavior: smooth; }
+        /* Estilo para los select (para mayor visibilidad) */
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236B7280'%3e%3cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1.5em 1.5em;
+        }
 
+        html { scroll-behavior: smooth; }
+        
         /* Estilos para el modal */
         .modal-overlay {
             z-index: 50; /* Por encima de todo */
             background-color: rgba(0, 0, 0, 0.7);
-        }
-        /* Estilos para deshabilitar el botón de forma visible */
-        #submit-btn:disabled:not(.loading) {
-            opacity: 0.6;
-            cursor: not-allowed;
-            pointer-events: none;
-            transform: none;
         }
     </style>
 </head>
@@ -76,12 +78,10 @@
 
                 <!-- HEADER SUPERIOR: LOGO + IDIOMAS -->
                 <div class="pt-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-                    <!-- LOGO BDiR MARESME (ACTUALIZADO CON ENLACE) -->
+                       <!-- LOGO: Se convierte en un enlace <a> -->
                     <div class="flex items-center">
-                        <a href="https://cmbdirmaresme-bot.github.io/landing-bdir-home/#" class="block cursor-pointer p-1 rounded-md hover:bg-gray-50 transition-colors">
-                            <div class="text-2xl font-bold tracking-tighter text-bdir-blue font-title">
-                                BDiR <span class="font-light text-gray-500 ml-1">Maresme</span>
-                            </div>
+                        <a href="https://cmbdirmaresme-bot.github.io/landing-bdir-home/#" class="text-2xl font-bold tracking-tighter text-bdir-blue font-title hover:text-[#007bb0] transition-colors">
+                            BDiR <span class="font-light text-gray-500 ml-1">Maresme</span>
                         </a>
                     </div>
                     
@@ -96,17 +96,17 @@
                 <main class="mt-10 mx-auto px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                     <div class="sm:text-center lg:text-left">
                         <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                            <span class="block xl:inline" data-i18n="hero_title_1">Recupera la movilidad.</span>
-                            <span class="block text-bdir-blue xl:inline" data-i18n="hero_title_2">Olvídate del dolor.</span>
+                            <span class="block xl:inline" data-i18n="hero_title_1">¡Las mejores tarifas del</span>
+                            <span class="block text-bdir-blue xl:inline" data-i18n="hero_title_2">año ya están aquí!</span>
                         </h1>
                         <p class="mt-3 text-base text-gray-600 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0" data-i18n="hero_subtitle">
-                            El centro de fisioterapia en Premià de Dalt para quienes buscan **soluciones reales** al dolor crónico y lesiones. Tratamiento 100% individualizado.
+                            Aprovecha nuestras promociones especiales de alta y tarifas horarias para unirte al centro deportivo más completo del Maresme.
                         </p>
                         
                         <!-- Botón Móvil -->
                         <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start lg:hidden">
                             <a href="#formulario" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-bdir-blue hover-bg-bdir-dark md:py-4 md:text-lg md:px-10 shadow-lg transition-all" data-i18n="mobile_cta">
-                                Solicitar Valoración Gratis
+                                Solicitar información de alta
                             </a>
                         </div>
                     </div>
@@ -114,14 +114,13 @@
             </div>
         </div>
 
-        <!-- IMAGEN HERO Y CONTENEDOR FORMULARIO (URL DE IMAGEN ACTUALIZADA A PLACEHOLDER) -->
+        <!-- IMAGEN HERO Y CONTENEDOR FORMULARIO (Placeholder para Gimnasio) -->
         <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-gray-100 flex items-center justify-center relative h-96 lg:h-auto">
-            <!-- Imagen de fondo (Placeholder simple con color corporativo) -->
+            <!-- Imagen de fondo (Placeholder de Gimnasio seguro) -->
             <div class="absolute inset-0 w-full h-full">
-                <!-- URL de imagen cambiada a un placeholder seguro con color #009FE3 y texto -->
                 <img class="h-full w-full object-cover opacity-90" 
-                    src="https://placehold.co/1000x800/009FE3/ffffff?text=Fisioterapia%20Maresme" 
-                    alt="Fisioterapeuta aplicando tratamiento a un paciente en camilla">
+                     src="https://placehold.co/1000x800/009FE3/ffffff?text=BDiR%20Maresme%20%7C%20Gimnasio" 
+                     alt="Instalaciones modernas de gimnasio con equipamiento de fitness">
                 <div class="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent lg:via-transparent"></div>
             </div>
 
@@ -132,18 +131,21 @@
                     <!-- Vista del Formulario -->
                     <div id="form-view">
                         <h3 class="text-xl font-bold text-gray-900 text-center mb-2 font-title" data-i18n="form_title">
-                            Pide tu 1ª Valoración Gratuita
+                            ¡Aprovecha nuestras promociones!
                         </h3>
                         <p class="text-sm text-gray-600 text-center mb-6" data-i18n="form_subtitle">
-                            Te llamamos para ofrecerte una sesión de **valoración de 30 minutos** con un fisioterapeuta especializado.
+                            Rellena el formulario y un asesor te informará sobre la promoción **Black Friday 6+2** o la tarifa que más te convenga.
                         </p>
                         
                         <!-- FORMULARIO ACTUALIZADO PARA ENVÍO REAL -->
                         <form onsubmit="submitForm(event)" class="space-y-4">
                             <!-- Campos Ocultos de Configuración FormSubmit -->
-                            <input type="hidden" name="_subject" value="Nuevo Lead Fisioterapia - Landing Page">
+                            <input type="hidden" name="_subject" value="Nuevo Lead Promociones Alta Socio - Landing Page">
                             <input type="hidden" name="_captcha" value="false">
                             <input type="hidden" name="_template" value="table">
+                            <!-- Campo para identificar la promo de interés -->
+                            <input type="hidden" name="promocion_interes" id="promocion_interes" value="Alta General">
+
 
                             <div>
                                 <label for="name" class="sr-only" data-i18n="label_name">Nombre y Apellidos</label>
@@ -157,35 +159,44 @@
                                 <label for="email" class="sr-only" data-i18n="label_email">Correo Electrónico</label>
                                 <input type="email" id="email" name="email" required placeholder="Correo Electrónico" class="block w-full rounded-md border-gray-300 bg-gray-50 border px-4 py-3 text-gray-900 focus:border-bdir-blue focus:ring-bdir-blue focus:outline-none transition-colors ring-1 ring-transparent focus:ring-2" data-i18n-placeholder="placeholder_email">
                             </div>
-                            <!-- Preferencia de contacto -->
-                            <div>
-                                <label for="contact_preference" class="sr-only" data-i18n="label_contact_pref">Forma de contacto preferida</label>
-                                <select id="contact_preference" name="preferencia_contacto" class="block w-full rounded-md border-gray-300 bg-gray-50 border px-4 py-3 text-gray-900 focus:border-bdir-blue focus:ring-bdir-blue focus:outline-none transition-colors ring-1 ring-transparent focus:ring-2 cursor-pointer">
-                                    <option value="" disabled selected data-i18n="placeholder_contact_pref">¿Cómo prefieres que te contactemos?</option>
-                                    <option value="phone" data-i18n="option_phone">Llamada telefónica</option>
-                                    <option value="whatsapp" data-i18n="option_whatsapp">WhatsApp</option>
-                                    <option value="email" data-i18n="option_email">Email</option>
-                                </select>
-                            </div>
 
-                            <!-- CASILLA DE ACEPTACIÓN LEGAL -->
-                            <div class="flex items-start mt-4">
+                            <!-- START OF NEW FIELD: Método de Contacto Preferido (SELECT/DESPLEGABLE) -->
+                            <div class="space-y-1">
+                                <label for="contact_method" class="block text-sm font-semibold text-gray-700" data-i18n="label_contact_method">
+                                    ¿Cómo prefieres que te contactemos?
+                                </label>
+                                <div class="relative">
+                                    <select id="contact_method" name="metodo_contacto" required class="block w-full rounded-md border-gray-300 bg-gray-50 border px-4 py-3 text-gray-900 focus:border-bdir-blue focus:ring-bdir-blue focus:outline-none transition-colors ring-1 ring-transparent focus:ring-2">
+                                        <option value="Telefono" data-i18n="contact_phone">Teléfono</option>
+                                        <option value="WhatsApp">WhatsApp</option>
+                                        <option value="Email" data-i18n="contact_email">Email</option>
+                                    </select>
+                                    <!-- Icono de flecha personalizado para el select -->
+                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+                                        <i data-lucide="chevron-down" class="h-5 w-5"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END OF NEW FIELD -->
+                            
+                            <!-- CASILLA DE TÉRMINOS LEGALES - AÑADIDA POLÍTICA DE COOKIES -->
+                            <div class="flex items-start pt-2">
                                 <div class="flex items-center h-5">
-                                    <input id="legal-checkbox" type="checkbox" name="legal_checkbox" onchange="toggleSubmitButton()" class="focus:ring-bdir-blue h-4 w-4 text-bdir-blue border-gray-300 rounded cursor-pointer">
+                                    <input id="terms" name="terms_accepted" type="checkbox" required class="focus:ring-bdir-blue h-4 w-4 text-bdir-blue border-gray-300 rounded">
                                 </div>
                                 <div class="ml-3 text-sm">
-                                    <label for="legal-checkbox" class="text-gray-600 cursor-pointer text-xs" data-i18n="form_legal_accept">
-                                        He leído y acepto la 
-                                        <a href="#" onclick="openLegalModal('privacy', event)" class="text-bdir-blue hover:text-bdir-dark font-semibold transition-colors underline">Política de Privacidad</a>
-                                        y los
-                                        <a href="#" onclick="openLegalModal('legal', event)" class="text-bdir-blue hover:text-bdir-dark font-semibold transition-colors underline">Términos Legales</a>.
+                                    <label for="terms" class="font-medium text-gray-700">
+                                        <span data-i18n="form_terms_text_part1">He leído y acepto la</span> 
+                                        <a href="#" onclick="openLegalModal('privacy')" id="privacyPolicyLinkForm" class="text-bdir-blue hover:underline cursor-pointer font-bold" data-i18n="form_privacy_link">Política de Privacidad</a>,
+                                        <a href="#" onclick="openLegalModal('cookies')" id="cookiesPolicyLinkForm" class="text-bdir-blue hover:underline cursor-pointer font-bold" data-i18n="form_cookies_link">Política de Cookies</a> 
+                                        <span data-i18n="form_terms_text_part2">y los</span> 
+                                        <a href="#" onclick="openLegalModal('legal')" id="legalNoticeLinkForm" class="text-bdir-blue hover:underline cursor-pointer font-bold" data-i18n="form_legal_link">Términos Legales</a>.
                                     </label>
                                 </div>
                             </div>
-                            <!-- FIN CASILLA -->
 
-                            <button id="submit-btn" type="submit" disabled class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-bdir-blue hover-bg-bdir-dark focus:outline-none focus:ring-2 focus:ring-offset-2 ring-bdir-blue uppercase tracking-wide transition-transform transform hover:scale-105 font-title">
-                                <span data-i18n="form_button">QUIERO MI VALORACIÓN GRATIS >></span>
+                            <button id="submit-btn" type="submit" class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-bdir-blue hover-bg-bdir-dark focus:outline-none focus:ring-2 focus:ring-offset-2 ring-bdir-blue uppercase tracking-wide transition-transform transform hover:scale-105 font-title">
+                                <span data-i18n="form_button">¡QUIERO INFORMACIÓN DE ALTA! >></span>
                             </button>
                             <p class="text-xs text-center text-gray-400 mt-2" data-i18n="form_privacy">
                                 Tu privacidad es importante. No compartiremos tus datos.
@@ -200,7 +211,7 @@
                         </div>
                         <h3 class="text-lg leading-6 font-medium text-gray-900 font-title" data-i18n="success_title">¡Solicitud Recibida!</h3>
                         <p class="mt-2 text-sm text-gray-500" data-i18n="success_msg">
-                            Nos pondremos en contacto contigo muy pronto para agendar tu sesión de valoración.
+                            Un asesor se pondrá en contacto contigo para resolver todas tus dudas y ayudarte con el proceso de alta.
                         </p>
                     </div>
 
@@ -209,63 +220,183 @@
         </div>
     </header>
 
-    <!-- --- BENEFICIOS SECTION --- -->
+    <!-- [CONTENIDO DE SECCIONES INTERMEDIAS OMITIDO POR BREVEDAD] -->
+    
+    <!-- --- SECCIÓN BLACK FRIDAY 6+2 --- -->
     <section class="py-16 bg-[#F5F5F5]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-                    <span data-i18n="benefits_title_1">De la frustración a la acción</span> <br class="hidden sm:block"/>
-                    <span class="text-gray-500 text-2xl font-normal" data-i18n="benefits_title_2">3 pilares de nuestro éxito</span>
+            <div class="text-center max-w-4xl mx-auto mb-12">
+                <div class="inline-block bg-red-600 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3" data-i18n="promo_tag">
+                    ¡OFERTA LIMITADA!
+                </div>
+                <h2 class="text-4xl font-extrabold text-gray-900 sm:text-5xl">
+                    <span data-i18n="bf_title_1">Black Friday BDiR: </span>
+                    <span class="text-red-600" data-i18n="bf_title_2">6 MESES + 2 GRATIS</span>
                 </h2>
+                <p class="mt-4 text-xl text-gray-600" data-i18n="bf_subtitle">
+                    Paga 6 meses y disfruta de 8 meses completos de acceso total. ¡Ahorra en tu cuota anual y empieza ya!
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <!-- Feature 1 -->
-                <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-50 text-bdir-blue mb-6">
-                        <i data-lucide="user-check" class="h-8 w-8"></i>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <!-- Beneficio BF 1 -->
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-red-600">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-red-50 text-red-600 mb-4">
+                        <i data-lucide="calendar-check" class="h-8 w-8"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3 font-title" data-i18n="benefit_1_title">Tratamiento 100% Personalizado</h3>
-                    <p class="text-gray-600 leading-relaxed" data-i18n="benefit_1_desc">
-                        No hacemos lo mismo para todos. Sesiones individuales donde el 100% del tiempo es para ti, sin máquinas genéricas. Tu plan se ajusta a tu cuerpo y objetivos.
-                    </p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 font-title" data-i18n="bf_benefit_1_title">8 Meses de Acceso</h3>
+                    <p class="text-gray-600" data-i18n="bf_benefit_1_desc">Disfruta de dos meses adicionales sin coste. ¡El mejor momento para empezar!</p>
                 </div>
 
-                <!-- Feature 2 -->
-                <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-50 text-bdir-blue mb-6">
-                        <i data-lucide="hand-heart" class="h-8 w-8"></i>
+                <!-- Beneficio BF 2 -->
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-red-600">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-red-50 text-red-600 mb-4">
+                        <i data-lucide="infinity" class="h-8 w-8"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3 font-title" data-i18n="benefit_2_title">Enfoque Terapéutico Global</h3>
-                    <p class="text-gray-600 leading-relaxed" data-i18n="benefit_2_desc">
-                        Abordamos el problema desde la raíz (postura, estrés, historial). Terapia manual avanzada, punción seca, electrolisis percutánea y ejercicio terapéutico.
-                    </p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 font-title" data-i18n="bf_benefit_2_title">Acceso Total (Full Day)</h3>
+                    <p class="text-gray-600" data-i18n="bf_benefit_2_desc">Accede a todas las instalaciones en cualquier horario, de lunes a domingo.</p>
                 </div>
-
-                <!-- Feature 3 -->
-                <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-50 text-bdir-blue mb-6">
-                        <i data-lucide="battery-charging" class="h-8 w-8"></i>
+                
+                <!-- Beneficio BF 3 - Actividades Dirigidas -->
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-red-600">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-red-50 text-red-600 mb-4">
+                        <i data-lucide="dumbell" class="h-8 w-8"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3 font-title" data-i18n="benefit_3_title">Especialistas en dolor crónico</h3>
-                    <p class="text-gray-600 leading-relaxed" data-i18n="benefit_3_desc">
-                        Si has probado de todo sin éxito, somos tu última parada. Cervicalgias, lumbalgias persistentes y fibromialgia. Te devolvemos el control de tu cuerpo.
-                    </p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 font-title" data-i18n="bf_benefit_3_title">Actividades Dirigidas</h3>
+                    <p class="text-gray-600" data-i18n="bf_benefit_3_desc">Más de 40 actividades dirigidas (incluido Entrenamiento Funcional).</p>
                 </div>
+            </div>
+            
+             <div class="mt-12 text-center">
+                <a href="#formulario" class="inline-block px-8 py-3 border border-transparent text-lg font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-xl md:px-10 shadow-xl transition-all font-title uppercase transform hover:scale-105" data-i18n="bf_cta_btn">
+                    ¡ME INTERESA LA OFERTA BLACK FRIDAY!
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- --- SOCIAL PROOF / TESTIMONIAL --- -->
+    <!-- --- SECCIÓN TARIFAS DISCRIMINACIÓN HORARIA --- -->
     <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl" data-i18n="tariffs_title">
+                    O elige la tarifa que se ajusta a tu horario
+                </h2>
+                <p class="mt-4 text-lg text-gray-500" data-i18n="tariffs_subtitle">
+                    Máxima flexibilidad para entrenar solo cuando lo necesitas, con precios más ajustados.
+                </p>
+            </div>
+
+            <!-- Contenedor de Tarifas (Grid de 2x2 en Desktop) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Tarifa Morning -->
+                <div class="tariff-card bg-blue-50 rounded-xl shadow-md p-6 text-center border-b-4 border-bdir-blue transition-all hover:shadow-xl">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-bdir-blue text-white mx-auto mb-3">
+                        <i data-lucide="sun" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1 font-title" data-i18n="tariff_morning_title">Morning</h3>
+                    <p class="text-gray-500 mb-4 text-sm" data-i18n="tariff_morning_time">Lunes a Viernes: 6:30h - 11:00h</p> <!-- HORARIO ACTUALIZADO -->
+                    <ul class="text-left space-y-2 text-gray-600 text-sm">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="h-4 w-4 text-bdir-blue mt-1 mr-2 flex-shrink-0"></i>
+                            <span data-i18n="tariff_feat_gym">Acceso a Sala Fitness.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="h-4 w-4 text-bdir-blue mt-1 mr-2 flex-shrink-0"></i>
+                            <span data-i18n="tariff_feat_activities">Actividades Dirigidas incluidas.</span> <!-- TEXTO ACTUALIZADO -->
+                        </li>
+                    </ul>
+                    <a href="#formulario" onclick="setPromo('Morning')" class="mt-6 inline-block w-full py-2.5 px-4 rounded-md text-sm font-bold text-white bg-bdir-blue hover-bg-bdir-dark transition-colors font-title uppercase" data-i18n="tariff_cta">
+                        Información Morning
+                    </a>
+                </div>
+
+                <!-- Tarifa Mid Dia -->
+                <div class="tariff-card bg-blue-50 rounded-xl shadow-md p-6 text-center border-b-4 border-bdir-blue transition-all hover:shadow-xl">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-bdir-blue text-white mx-auto mb-3">
+                        <i data-lucide="cloud-sun" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1 font-title" data-i18n="tariff_mid_title">Mid Dia</h3>
+                    <p class="text-gray-500 mb-4 text-sm" data-i18n="tariff_mid_time">Lunes a Viernes: 11:00h - 16:00h</p> <!-- HORARIO ACTUALIZADO -->
+                    <ul class="text-left space-y-2 text-gray-600 text-sm">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="h-4 w-4 text-bdir-blue mt-1 mr-2 flex-shrink-0"></i>
+                            <span data-i18n="tariff_feat_gym">Acceso a Sala Fitness.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="h-4 w-4 text-bdir-blue mt-1 mr-2 flex-shrink-0"></i>
+                            <span data-i18n="tariff_feat_activities">Actividades Dirigidas incluidas.</span> <!-- TEXTO ACTUALIZADO -->
+                        </li>
+                    </ul>
+                     <a href="#formulario" onclick="setPromo('Mid Dia')" class="mt-6 inline-block w-full py-2.5 px-4 rounded-md text-sm font-bold text-white bg-bdir-blue hover-bg-bdir-dark transition-colors font-title uppercase" data-i18n="tariff_cta">
+                        Información Mid Dia
+                    </a>
+                </div>
+
+                <!-- Tarifa Nit -->
+                <div class="tariff-card bg-blue-50 rounded-xl shadow-md p-6 text-center border-b-4 border-bdir-blue transition-all hover:shadow-xl">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-bdir-blue text-white mx-auto mb-3">
+                        <i data-lucide="moon" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1 font-title" data-i18n="tariff_night_title">Nit</h3>
+                    <p class="text-gray-500 mb-4 text-sm" data-i18n="tariff_night_time">Lunes a Viernes: 20:30h - 22:30h</p> <!-- HORARIO ACTUALIZADO -->
+                    <ul class="text-left space-y-2 text-gray-600 text-sm">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="h-4 w-4 text-bdir-blue mt-1 mr-2 flex-shrink-0"></i>
+                            <span data-i18n="tariff_feat_gym">Acceso a Sala Fitness.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="h-4 w-4 text-bdir-blue mt-1 mr-2 flex-shrink-0"></i>
+                            <span data-i18n="tariff_feat_activities">Actividades Dirigidas incluidas.</span> <!-- TEXTO ACTUALIZADO -->
+                        </li>
+                    </ul>
+                     <a href="#formulario" onclick="setPromo('Nit')" class="mt-6 inline-block w-full py-2.5 px-4 rounded-md text-sm font-bold text-white bg-bdir-blue hover-bg-bdir-dark transition-colors font-title uppercase" data-i18n="tariff_cta">
+                        Información Nit
+                    </a>
+                </div>
+                
+                <!-- Tarifa Cap de Setmana -->
+                <div class="tariff-card bg-blue-50 rounded-xl shadow-md p-6 text-center border-b-4 border-bdir-blue transition-all hover:shadow-xl">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-bdir-blue text-white mx-auto mb-3">
+                        <i data-lucide="calendar-days" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1 font-title" data-i18n="tariff_weekend_title">Cap de Setmana</h3>
+                    <p class="text-gray-500 mb-4 text-sm" data-i18n="tariff_weekend_time">Sábados y Domingos: Horario Completo</p>
+                    <ul class="text-left space-y-2 text-gray-600 text-sm">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="h-4 w-4 text-bdir-blue mt-1 mr-2 flex-shrink-0"></i>
+                            <span data-i18n="tariff_feat_gym">Acceso a Sala Fitness.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="h-4 w-4 text-bdir-blue mt-1 mr-2 flex-shrink-0"></i>
+                            <span data-i18n="tariff_feat_activities">Actividades Dirigidas incluidas.</span> <!-- TEXTO ACTUALIZADO -->
+                        </li>
+                    </ul>
+                    <a href="#formulario" onclick="setPromo('Cap de Setmana')" class="mt-6 inline-block w-full py-2.5 px-4 rounded-md text-sm font-bold text-white bg-bdir-blue hover-bg-bdir-dark transition-colors font-title uppercase" data-i18n="tariff_cta">
+                        Información Cap de Setmana
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center text-gray-500 text-sm border-t pt-6">
+                <p data-i18n="tariffs_note">
+                    *Consulta las bases y condiciones específicas de cada tarifa en recepción. Todas las tarifas se pagan en cuota mensual.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SOCIAL PROOF / TESTIMONIAL (Reutilizada con contenido de gimnasio) --- -->
+    <section class="py-16 bg-[#F5F5F5]">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-lg text-gray-500 font-medium mb-8 italic" data-i18n="social_proof_intro">
-                "La solución profesional y definitiva para la movilidad y el dolor en el Maresme."
+                "Más que un gimnasio, una comunidad dedicada a tu bienestar."
             </p>
             
             <div class="bg-blue-50 rounded-2xl p-8 shadow-inner relative overflow-hidden">
                 <div class="absolute top-0 left-0 opacity-10 transform -translate-x-4 -translate-y-4">
-                    <i data-lucide="star" class="h-32 w-32 text-bdir-blue fill-current"></i>
+                    <i data-lucide="dumbell" class="h-32 w-32 text-bdir-blue fill-current"></i>
                 </div>
                 <div class="relative z-10">
                     <div class="flex justify-center mb-4 space-x-1">
@@ -276,21 +407,22 @@
                         <i data-lucide="star" class="h-6 w-6 text-yellow-400 fill-current"></i>
                     </div>
                     <blockquote class="text-xl text-gray-800 font-medium mb-6" data-i18n="testimonial_quote">
-                        "He pasado por varios centros y nadie había dado con el origen de mi dolor de hombro. Con la terapia de Fisioteràpia Maresme por fin vuelvo a dormir y a hacer deporte sin miedo."
+                        "Las instalaciones son de 10, y el ambiente es inmejorable. Empecé con la tarifa Mid Dia y ahora me he pasado a la Full Day. Totalmente recomendable."
                     </blockquote>
                     <div class="flex items-center justify-center space-x-4">
                         <div class="h-12 w-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-500 font-bold">
-                            AF
+                            LJ
                         </div>
                         <div class="text-left">
-                            <div class="font-bold text-gray-900">Anna F.</div>
-                            <div class="text-sm text-gray-500">Premià de Dalt</div>
+                            <div class="font-bold text-gray-900">Laura J.</div>
+                            <div class="text-sm text-gray-500">Vilassar de Mar</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- --- CTA FINAL --- -->
     <section class="relative py-20 bg-bdir-blue">
@@ -300,33 +432,32 @@
         </div>
         <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-extrabold text-white sm:text-4xl mb-6" data-i18n="cta_final_title">
-                ¿Cansado/a de vivir limitado/a por el dolor?
+                No esperes más para empezar tu cambio.
             </h2>
             <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto" data-i18n="cta_final_desc">
-                No dejes que el dolor controle tu vida. Reserva tu valoración gratuita y empieza a moverte sin límites hoy mismo.
+                Infórmate sin compromiso sobre nuestras promociones y planes. ¡Plazas limitadas en las tarifas horarias!
             </p>
             <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="inline-block bg-white py-4 px-10 border border-transparent rounded-md shadow-lg text-lg font-bold text-bdir-blue hover:bg-gray-50 hover-text-bdir-dark transition-all transform hover:-translate-y-1 uppercase cursor-pointer font-title" data-i18n="cta_final_btn">
-                QUIERO MI VALORACIÓN FISIOTERAPÉUTICA GRATUITA
+                SOLICITAR INFORMACIÓN AHORA
             </button>
         </div>
     </section>
 
-    <!-- --- FOOTER (ESTILO OSCURO: bg-gray-900) --- -->
+    <!-- --- FOOTER --- -->
     <footer class="bg-gray-900 border-t border-gray-700">
         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center mb-4 md:mb-0">
-                    <!-- LOGO FOOTER (BDiR MARESME) - TEXTO BLANCO -->
-                    <a href="https://cmbdirmaresme-bot.github.io/landing-bdir-home/#" class="block cursor-pointer p-1 rounded-md hover:bg-gray-800 transition-colors">
-                        <div class="text-xl font-bold tracking-tighter text-bdir-blue font-title">
-                            BDiR <span class="font-light text-gray-300 ml-1 text-lg">Maresme</span>
-                        </div>
-                    </a>
+                    <!-- LOGO FOOTER (BDiR MARESME) -->
+                    <div class="text-xl font-bold tracking-tighter text-bdir-blue font-title">
+                        BDiR <span class="font-light text-gray-300 ml-1 text-lg">Maresme</span>
+                    </div>
                 </div>
+                <!-- Contactos y Links (Texto en gris claro) -->
                 <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 text-gray-300 text-sm">
-                     <!-- ENLACE DE DIRECCIÓN A GOOGLE MAPS -->
+                    <!-- ENLACE DE DIRECCIÓN A GOOGLE MAPS -->
                     <a href="https://www.google.com/maps/place/BDiR+Maresme/@41.5017127,2.3585388,17z/data=!3m2!4b1!5s0x12a4b6ca06a87c4f:0x3f1604cbb1de26a0!4m6!3m5!1s0x12a4b6c9f5bdc26f:0x30d3bea632480e1!8m2!3d41.5017127!4d2.3611137!16s%2Fg%2F11hctz10q0?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center space-x-2 hover:text-bdir-blue transition-colors group cursor-pointer" aria-label="Abrir Google Maps con la dirección del gimnasio">
-                        <i data-lucide="map-pin" class="h-5 w-5 text-bdir-blue"></i>
+                        <i data-lucide="map-pin" class="h-5 w-5 text-bdir-blue group-hover:scale-110 transition-transform"></i>
                         <span>Av. Pedrablanca S/N Local 7</span>
                     </a>
                     <div class="flex items-center space-x-2">
@@ -334,33 +465,34 @@
                         <span>93 754 87 47</span>
                     </div>
                     <!-- Enlace WhatsApp actualizado con ID para traducción -->
-                    <a id="whatsapp-link-footer" href="https://wa.me/34682334580?text=Quiero%20solicitar%20mi%20valoraci%C3%B3n%20fisioterap%C3%A9utica%20gratuita" target="_blank" class="flex items-center space-x-2 hover:text-bdir-blue transition-colors group">
+                    <a id="whatsapp-link-footer" href="https://wa.me/34682334580?text=Quiero%20solicitar%20informaci%C3%B3n%20sobre%20las%20promociones%20de%20alta" target="_blank" class="flex items-center space-x-2 hover:text-bdir-blue transition-colors group">
                         <i data-lucide="message-circle" class="h-5 w-5 text-bdir-blue group-hover:scale-110 transition-transform"></i>
                         <span class="font-semibold">682 334 580</span>
                     </a>
                 </div>
             </div>
+            
             <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
-                <!-- Redes Sociales (Facebook e Instagram) - ICONOS BLANCOS/GRISES -->
+                <!-- Redes Sociales (Facebook e Instagram) - Iconos en gris claro -->
                 <div class="flex space-x-6 md:order-3 mt-4 md:mt-0 justify-center md:justify-end">
-                    <a href="https://www.facebook.com/bdirmaresme/?locale=es_ES" target="_blank" class="text-gray-500 hover:text-bdir-blue transition-colors">
+                    <a href="https://www.facebook.com/bdirmaresme/?locale=es_ES" target="_blank" class="text-gray-300 hover:text-bdir-blue transition-colors">
                         <span class="sr-only">Facebook</span>
                         <i data-lucide="facebook" class="h-6 w-6"></i>
                     </a>
-                    <a href="https://www.instagram.com/bdirmaresme/?hl=es" target="_blank" class="text-gray-500 hover:text-bdir-blue transition-colors">
+                    <a href="https://www.instagram.com/bdirmaresme/?hl=es" target="_blank" class="text-gray-300 hover:text-bdir-blue transition-colors">
                         <span class="sr-only">Instagram</span>
                         <i data-lucide="instagram" class="h-6 w-6"></i>
                     </a>
                 </div>
 
-                <!-- Enlaces Legales - TEXTO GRIS CLARO -->
-                <div class="flex space-x-6 md:order-2 justify-center mt-4 md:mt-0 text-sm">
-                    <a href="#" onclick="openLegalModal('privacy', event)" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer_privacy">Política de Privacidad</a>
-                    <a href="#" onclick="openLegalModal('cookies', event)" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer_cookies">Política de Cookies</a>
-                    <a href="#" onclick="openLegalModal('legal', event)" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer_legal">Aviso Legal</a>
+                <!-- Enlaces Legales (Añadidos IDs para el JS del Modal + COOKIES) - Texto en gris claro con hover azul -->
+                <div class="flex space-x-6 md:order-2 justify-center mt-4 md:mt-0">
+                    <a href="#" onclick="openLegalModal('privacy')" id="privacyPolicyLinkFooter" class="text-gray-300 hover:text-bdir-blue" data-i18n="footer_privacy">Política de Privacidad</a>
+                    <a href="#" onclick="openLegalModal('cookies')" id="cookiesPolicyLinkFooter" class="text-gray-300 hover:text-bdir-blue" data-i18n="footer_cookies">Política de Cookies</a>
+                    <a href="#" onclick="openLegalModal('legal')" id="legalNoticeLinkFooter" class="text-gray-300 hover:text-bdir-blue" data-i18n="footer_legal">Aviso Legal</a>
                 </div>
 
-                <!-- Copyright - TEXTO GRIS OSCURO -->
+                <!-- Copyright (BDiR Maresme) - Texto en gris medio -->
                 <p class="mt-8 text-base text-gray-500 md:mt-0 md:order-1 text-center md:text-left" data-i18n="footer_rights">
                     &copy; 2025 BDiR Maresme. Todos los derechos reservados.
                 </p>
@@ -368,259 +500,328 @@
         </div>
     </footer>
 
-    <!-- --- MODAL DE AVISOS LEGALES --- -->
-    <div id="legal-modal" class="fixed inset-0 hidden modal-overlay flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto transform transition-all">
-            <div class="p-6">
-                <!-- Header del Modal -->
-                <div class="flex justify-between items-center border-b pb-3 mb-4 sticky top-0 bg-white z-10">
-                    <h3 id="modal-title" class="text-2xl font-bold text-gray-900 font-title"></h3>
-                    <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
-                        <i data-lucide="x" class="h-6 w-6"></i>
-                    </button>
-                </div>
-                
-                <!-- Contenido del Modal -->
-                <div id="modal-content" class="text-gray-700 leading-relaxed">
-                    
-                    <!-- Contenido Aviso Legal (ACTUALIZADO) -->
-                    <div id="legal-content" class="hidden">
-                        <h4 class="text-xl font-bold mb-3 mt-4 text-bdir-blue" data-i18n="legal_title"></h4>
-                        
-                        <h5 class="font-bold mt-4 text-lg" data-i18n="legal_section_1_title"></h5>
-                        <p class="text-sm italic text-gray-500" data-i18n="legal_section_1_intro"></p>
-                        <ul class="list-disc list-inside ml-4 space-y-2 text-sm mt-2">
-                            <li data-i18n="legal_id_owner"></li>
-                            <li data-i18n="legal_id_nif"></li>
-                            <li data-i18n="legal_id_address"></li>
-                            <li data-i18n="legal_id_email"></li>
-                            <li data-i18n="legal_id_activity"></li>
-                        </ul>
+    <!-- 
+        MODAL para el Aviso Legal / Política de Privacidad / Política de Cookies
+        Inicialmente oculto (hidden)
+    -->
+    <div id="legalModal" class="modal-overlay fixed inset-0 hidden items-center justify-center p-4">
+        <div class="modal-content bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 sm:p-8">
+            <div class="flex justify-between items-start mb-4 border-b pb-3">
+                <h2 id="modalTitle" class="text-2xl font-bold text-gray-900">Aviso Legal</h2>
+                <button id="closeModalButton" onclick="closeModal()" class="text-gray-400 hover:text-gray-700 transition duration-150">
+                    <!-- Icono SVG de cerrar -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
 
-                        <h5 class="font-bold mt-6 text-lg" data-i18n="legal_section_2_title"></h5>
-                        <p class="mb-4 text-sm" data-i18n="legal_section_2_content"></p>
-
-                        <h5 class="font-bold mt-6 text-lg" data-i18n="legal_section_3_title"></h5>
-                        <p class="mb-4 text-sm" data-i18n="legal_section_3_content"></p>
-                    </div>
-
-                    <!-- Contenido Política de Privacidad (ACTUALIZADO) -->
-                    <div id="privacy-content" class="hidden">
-                        <h4 class="text-xl font-bold mb-3 mt-4 text-bdir-blue" data-i18n="privacy_title"></h4>
-                        
-                        <h5 class="font-bold mt-4 text-lg" data-i18n="privacy_section_1_title"></h5>
-                        <p class="mb-4 text-sm" data-i18n="privacy_section_1_content"></p>
-                        
-                        <h5 class="font-bold mt-6 text-lg" data-i18n="privacy_section_2_title"></h5>
-                        <p class="mb-4 text-sm" data-i18n="privacy_section_2_content"></p>
-
-                        <h5 class="font-bold mt-6 text-lg" data-i18n="privacy_section_3_title"></h5>
-                        <p class="mb-4 text-sm" data-i18n="privacy_section_3_content"></p>
-                        
-                        <h5 class="font-bold mt-6 text-lg" data-i18n="privacy_section_4_title"></h5>
-                        <p class="mb-4 text-sm" data-i18n="privacy_section_4_content"></p>
-                    </div>
-
-                    <!-- Contenido Política de Cookies (Mantenido) -->
-                    <div id="cookies-content" class="hidden">
-                        <h4 class="text-xl font-bold mb-3 mt-4 text-bdir-blue" data-i18n="cookies_title"></h4>
-                        <p class="mb-4" data-i18n="cookies_intro"></p>
-                        
-                        <h5 class="font-bold mt-4" data-i18n="cookies_section_1_title"></h5>
-                        <p class="mb-4" data-i18n="cookies_section_1_content"></p>
-                        
-                        <h5 class="font-bold mt-4" data-i18n="cookies_section_2_title"></h5>
-                        <p class="mb-2" data-i18n="cookies_section_2_content_intro"></p>
-                        <ul class="list-disc list-inside ml-4 space-y-2">
-                            <li data-i18n="cookies_type_tech">**Cookies técnicas:** Necesarias para el correcto funcionamiento de la web.</li>
-                            <li data-i18n="cookies_type_anal">**Cookies de análisis:** Permiten cuantificar el número de usuarios y medir la actividad de la web (ej. si se usa Google Analytics).</li>
-                        </ul>
-                        
-                        <h5 class="font-bold mt-4" data-i18n="cookies_section_3_title"></h5>
-                        <p data-i18n="cookies_section_3_content"></p>
-                    </div>
-                </div>
+            <!-- Contenido que será inyectado por JavaScript para soportar la traducción -->
+            <div id="modalContentContainer" class="text-sm text-gray-600 space-y-4">
+                <!-- El contenido se cargará aquí al abrir el modal -->
+            </div>
+            
+            <div class="flex justify-end pt-6">
+                <button onclick="closeModal()" class="py-2 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 transition duration-150" data-i18n="modal_close_btn">
+                    Cerrar
+                </button>
             </div>
         </div>
     </div>
 
+
     <!-- JAVASCRIPT: LOGICA + TRADUCCIONES -->
     <script>
         // 2. CONFIGURACIÓN DEL EMAIL (IMPORTANTE)
-        const emailDestino = "cm.bdirmaresme@gmail.com"; // <--- CAMBIA ESTO POR EL EMAIL REAL DE FISIOTERAPIA
+        const emailDestino = "cm.bdirmaresme@gmail.com"; // <--- CAMBIA ESTO POR EL EMAIL REAL DE RECEPCIÓN/ALTAS
         
         // 3. Diccionario de Traducciones
         const translations = {
             es: {
-                hero_title_1: "Recupera la movilidad.",
-                hero_title_2: "Olvídate del dolor.",
-                hero_subtitle: "El centro de fisioterapia en Premià de Dalt para quienes buscan **soluciones reales** al dolor crónico y lesiones. Tratamiento 100% individualizado.",
-                mobile_cta: "Solicitar Valoración Gratis",
-                form_title: "Pide tu 1ª Valoración Gratuita",
-                form_subtitle: "Te llamamos para ofrecerte una sesión de **valoración de 30 minutos** con un fisioterapeuta especializado.",
+                hero_title_1: "¡Las mejores tarifas del",
+                hero_title_2: "año ya están aquí!",
+                hero_subtitle: "Aprovecha nuestras promociones especiales de alta y tarifas horarias para unirte al centro deportivo más completo del Maresme.",
+                mobile_cta: "Solicitar información de alta",
+                form_title: "¡Aprovecha nuestras promociones!",
+                form_subtitle: "Rellena el formulario y un asesor te informará sobre la promoción **Black Friday 6+2** o la tarifa que más te convenga.",
                 label_name: "Nombre y Apellidos",
                 placeholder_name: "Nombre y Apellidos",
                 label_phone: "Teléfono Móvil",
                 placeholder_phone: "Teléfono Móvil",
                 label_email: "Correo Electrónico",
                 placeholder_email: "Correo Electrónico",
-                
-                label_contact_pref: "Forma de contacto preferida",
-                placeholder_contact_pref: "¿Cómo prefieres que te contactemos?",
-                option_phone: "Llamada telefónica",
+                // Traducciones para el nuevo campo de contacto (SELECT)
+                label_contact_method: "¿Cómo prefieres que te contactemos?",
+                contact_phone: "Teléfono",
+                contact_email: "Email",
+                // Traducciones para las opciones del select
+                option_phone: "Teléfono",
                 option_whatsapp: "WhatsApp",
                 option_email: "Email",
-
-                form_legal_accept: 'He leído y acepto la <a href="#" onclick="openLegalModal(\'privacy\', event)" class="text-bdir-blue hover:text-bdir-dark font-semibold transition-colors underline">Política de Privacidad</a> y los <a href="#" onclick="openLegalModal(\'legal\', event)" class="text-bdir-blue hover:text-bdir-dark font-semibold transition-colors underline">Términos Legales</a>.',
-
-                form_button: "QUIERO MI VALORACIÓN GRATIS >>",
+                // Traducciones para la nueva casilla legal (Formulario)
+                form_terms_text_part1: "He leído y acepto la",
+                form_privacy_link: "Política de Privacidad",
+                form_cookies_link: "Política de Cookies",
+                form_terms_text_part2: "y los", 
+                form_legal_link: "Términos Legales",
+                
+                form_button: "¡QUIERO INFORMACIÓN DE ALTA! >>",
                 form_sending: "ENVIANDO...",
                 form_privacy: "Tu privacidad es importante. No compartiremos tus datos.",
                 success_title: "¡Solicitud Recibida!",
-                success_msg: "Nos pondremos en contacto contigo muy pronto para agendar tu sesión de valoración.",
-                benefits_title_1: "De la frustración a la acción",
-                benefits_title_2: "(3 pilares de nuestro éxito)",
-                benefit_1_title: "Tratamiento 100% Personalizado",
-                benefit_1_desc: "No hacemos lo mismo para todos. Sesiones individuales donde el 100% del tiempo es para ti, sin máquinas genéricas. Tu plan se ajusta a tu cuerpo y objetivos.",
-                benefit_2_title: "Enfoque Terapéutico Global",
-                benefit_2_desc: "Abordamos el problema desde la raíz (postura, estrés, historial). Terapia manual avanzada, punción seca, electrolisis percutánea y ejercicio terapéutico.",
-                benefit_3_title: "Especialistas en dolor crónico",
-                benefit_3_desc: "Si has probado de todo sin éxito, somos tu última parada. Cervicalgias, lumbalgias persistentes y fibromialgia. Te devolvemos el control de tu cuerpo.",
-                social_proof_intro: "\"La solución profesional y definitiva para la movilidad y el dolor en el Maresme.\"",
-                testimonial_quote: "\"He pasado por varios centros y nadie había dado con el origen de mi dolor de hombro. Con la terapia de Fisioteràpia Maresme por fin vuelvo a dormir y a hacer deporte sin miedo.\"",
-                cta_final_title: "¿Cansado/a de vivir limitado/a por el dolor?",
-                cta_final_desc: "No dejes que el dolor controle tu vida. Reserva tu valoración gratuita y empieza a moverte sin límites hoy mismo.",
-                cta_final_btn: "QUIERO MI VALORACIÓN FISIOTERAPÉUTICA GRATUITA",
+                success_msg: "Un asesor se pondrá en contacto contigo para resolver todas tus dudas y ayudarte con el proceso de alta.",
                 
-                // Textos del FOOTER y MODAL
+                // Black Friday
+                promo_tag: "¡OFERTA LIMITADA!",
+                bf_title_1: "Black Friday BDiR: ",
+                bf_title_2: "6 MESES + 2 GRATIS",
+                bf_subtitle: "Paga 6 meses y disfruta de 8 meses completos de acceso total. ¡Ahorra en tu cuota anual y empieza ya!",
+                bf_benefit_1_title: "8 Meses de Acceso",
+                bf_benefit_1_desc: "Disfruta de dos meses adicionales sin coste. ¡El mejor momento para empezar!",
+                bf_benefit_2_title: "Acceso Total (Full Day)",
+                bf_benefit_2_desc: "Accede a todas las instalaciones en cualquier horario, de lunes a domingo.",
+                bf_benefit_3_title: "Actividades Dirigidas",
+                bf_benefit_3_desc: "Más de 40 actividades dirigidas (incluido Entrenamiento Funcional).",
+                bf_cta_btn: "¡ME INTERESA LA OFERTA BLACK FRIDAY!",
+                
+                // Tarifas Horarias
+                tariffs_title: "O elige la tarifa que se ajusta a tu horario",
+                tariffs_subtitle: "Máxima flexibilidad para entrenar solo cuando lo necesitas, con precios más ajustados.",
+                tariff_morning_title: "Morning",
+                tariff_morning_time: "Lunes a Viernes: 6:30h - 11:00h",
+                tariff_mid_title: "Mid Dia",
+                tariff_mid_time: "Lunes a Viernes: 11:00h - 16:00h",
+                tariff_night_title: "Nit",
+                tariff_night_time: "Lunes a Viernes: 20:30h - 22:30h",
+                tariff_weekend_title: "Cap de Setmana",
+                tariff_weekend_time: "Sábados y Domingos: Horario Completo",
+                tariff_feat_gym: "Acceso a Sala Fitness.",
+                tariff_feat_activities: "Actividades Dirigidas incluidas.",
+                tariffs_note: "*Consulta las bases y condiciones específicas de cada tarifa en recepción. Todas las tarifas se pagan en cuota mensual.",
+
+                // Testimonio
+                social_proof_intro: "\"Más que un gimnasio, una comunidad dedicada a tu bienestar.\"",
+                testimonial_quote: "\"Las instalaciones son de 10, y el ambiente es inmejorable. Empecé con la tarifa Mid Dia y ahora me he pasado a la Full Day. Totalmente recomendable.\"",
+                
+                // CTA Final
+                cta_final_title: "No esperes más para empezar tu cambio.",
+                cta_final_desc: "Infórmate sin compromiso sobre nuestras promociones y planes. ¡Plazas limitadas en las tarifas horarias!",
+                cta_final_btn: "SOLICITAR INFORMACIÓN AHORA",
+                
+                // Footer
                 footer_privacy: "Política de Privacidad",
                 footer_cookies: "Política de Cookies",
                 footer_legal: "Aviso Legal",
                 footer_rights: "&copy; 2025 BDiR Maresme. Todos los derechos reservados.",
-                whatsapp_message: "Quiero solicitar mi valoración fisioterapéutica gratuita",
+                whatsapp_message: "Quiero solicitar información sobre las promociones de alta",
 
-                // *** NUEVOS TEXTOS DE AVISO LEGAL ***
-                legal_title: "Aviso Legal de BDiR Maresme",
-                legal_section_1_title: "1. Datos Identificativos del Titular",
-                legal_section_1_intro: "En cumplimiento con el deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI-CE), se informa de:",
-                legal_id_owner: "Titular del Sitio Web: **[Nombre de la Empresa o Persona Física]**",
-                legal_id_nif: "NIF/CIF: **[Tu NIF/CIF]**",
-                legal_id_address: "Domicilio Social: **[Tu dirección completa]**",
-                legal_id_email: "Correo Electrónico: **[Tu Email de Contacto]**",
-                legal_id_activity: "Actividad: **[Tu actividad principal, ejemplo: Gestión de centros deportivos y fitness]**",
-                legal_section_2_title: "2. Propiedad Intelectual e Industrial",
-                legal_section_2_content: "BDiR Maresme, por sí o como cesionaria, es titular de todos los derechos de propiedad intelectual e industrial del sitio web.",
-                legal_section_3_title: "3. Exclusión de Garantías y Responsabilidad",
-                legal_section_3_content: "BDiR Maresme no se hace responsable de los daños y perjuicios que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal o la transmisión de virus o programas maliciosos en los contenidos.",
-
-
-                // *** NUEVOS TEXTOS DE POLÍTICA DE PRIVACIDAD ***
-                privacy_title: "Política de Privacidad de BDiR Maresme",
-                privacy_section_1_title: "1. Responsable del Tratamiento",
-                privacy_section_1_content: "La entidad responsable del tratamiento de sus datos es **[Nombre de la Empresa o Persona Física, ejemplo: BDiR Maresme S.L.]**, con NIF/CIF **[Tu NIF/CIF]** y domicilio en **[Tu dirección completa]**. Para cualquier consulta, puede contactarnos en el correo electrónico: **[Tu Email de Contacto Legal, ejemplo: legal@bdirmaresme.com]**.",
-                privacy_section_2_title: "2. Datos Recabados y Finalidad",
-                privacy_section_2_content: "Los datos recabados a través de formularios (nombre, email, teléfono) tienen como finalidad exclusiva la **gestión de la solicitud de información o contacto comercial** (sesión de prueba) iniciada por el usuario. También podrán ser utilizados para el envío de comunicaciones comerciales relativas a nuestros servicios, si el usuario ha dado su consentimiento expreso.",
-                privacy_section_3_title: "3. Base Legal para el Tratamiento",
-                privacy_section_3_content: "La base legal para el tratamiento es el **consentimiento** del interesado al rellenar y enviar el formulario (Art. 6.1.a del RGPD).",
-                privacy_section_4_title: "4. Derechos del Usuario",
-                privacy_section_4_content: "Usted tiene derecho a ejercer sus derechos de Acceso, Rectificación, Supresión, Oposición, Limitación del Tratamiento y Portabilidad. Puede ejercer estos derechos enviando un correo a **[Tu Email de Contacto Legal]** adjuntando copia de su DNI.",
+                // MODAL / AVISO LEGAL
+                modal_close_btn: "Cerrar",
+                modal_title_legal: "Aviso Legal",
+                modal_title_privacy: "Política de Privacidad",
+                modal_title_cookies: "Política de Cookies",
                 
-                // Textos para el MODAL DE COOKIES (MANTENIDOS)
-                cookies_title: "Política de Cookies de BDiR Maresme",
-                cookies_intro: "El sitio web utiliza cookies para mejorar la experiencia del usuario.",
-                cookies_section_1_title: "1. ¿Qué son las Cookies?",
-                cookies_section_1_content: "Una cookie es un pequeño fichero de texto que se descarga en el equipo del usuario al acceder a determinadas páginas web. Permiten almacenar y recuperar información sobre los hábitos de navegación de un usuario.",
-                cookies_section_2_title: "2. Cookies Utilizadas",
-                cookies_section_2_content_intro: "Este sitio web utiliza o podría utilizar:",
-                cookies_type_tech: "**Cookies técnicas:** Necesarias para el correcto funcionamiento de la web.",
-                cookies_type_anal: "**Cookies de análisis:** Permiten cuantificar el número de usuarios y medir la actividad de la web (ej. si se usa Google Analytics).",
-                cookies_section_3_title: "3. Consentimiento y Desactivación",
-                cookies_section_3_content: "Al navegar, usted acepta el uso de las cookies en las condiciones contenidas en esta Política. Puede revocar el consentimiento y modificar la configuración de las cookies en cualquier momento a través de la configuración de su navegador.",
+                // Contenido Aviso Legal
+                legal_notice_content: `
+                    <p class="text-base font-semibold text-gray-800">Aviso Legal de BDiR Maresme</p>
+                    <div class="space-y-2">
+                        <p class="font-bold text-gray-900">1. Datos Identificativos del Titular</p>
+                        <p>En cumplimiento con el deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI-CE), se informa de:</p>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li>**Titular del Sitio Web:** [Nombre de la Empresa o Persona Física]</li>
+                            <li>**NIF/CIF:** [Tu NIF/CIF]</li>
+                            <li>**Domicilio Social:** [Tu dirección completa]</li>
+                            <li>**Correo Electrónico:** [Tu Email de Contacto]</li>
+                            <li>**Actividad:** [Tu actividad principal, ejemplo: Gestión de centros deportivos y fitness]</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-2 pt-2">
+                        <p class="font-bold text-gray-900">2. Propiedad Intelectual e Industrial</p>
+                        <p>BDiR Maresme, por sí o como cesionaria, es titular de todos los derechos de propiedad intelectual e industrial del sitio web.</p>
+                    </div>
+                    <div class="space-y-2 pt-2">
+                        <p class="font-bold text-gray-900">3. Exclusión de Garantías y Responsabilidad</p>
+                        <p>BDiR Maresme no se hace responsable de los daños y perjuicios que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal o la transmisión de virus o programas maliciosos en los contenidos.</p>
+                    </div>
+                `,
+                // Contenido Política de Privacidad (ACTUALIZADO)
+                privacy_policy_content: `
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Política de Privacidad de BDiR Maresme</h3>
+                    <div class="space-y-4">
+                        <p class="font-bold text-gray-900">1. Responsable del Tratamiento</p>
+                        <p>La entidad responsable del tratamiento de sus datos es **[Nombre de la Empresa o Persona Física, ejemplo: BDiR Maresme S.L.]**, con NIF/CIF **[Tu NIF/CIF]** y domicilio en **[Tu dirección completa]**. Para cualquier consulta, puede contactarnos en el correo electrónico: **[Tu Email de Contacto Legal, ejemplo: legal@bdirmaresme.com]**.</p>
+                        
+                        <p class="font-bold text-gray-900">2. Datos Recabados y Finalidad</p>
+                        <p>Los datos recabados a través de formularios (nombre, email, teléfono) tienen como finalidad exclusiva la **gestión de la solicitud de información o contacto comercial** (sesión de prueba) iniciada por el usuario. También podrán ser utilizados para el envío de comunicaciones comerciales relativas a nuestros servicios, si el usuario ha dado su consentimiento expreso.</p>
+                        
+                        <p class="font-bold text-gray-900">3. Base Legal para el Tratamiento</p>
+                        <p>La base legal para el tratamiento es el **consentimiento** del interesado al rellenar y enviar el formulario (Art. 6.1.a del RGPD).</p>
+                        
+                        <p class="font-bold text-gray-900">4. Derechos del Usuario</p>
+                        <p>Usted tiene derecho a ejercer sus derechos de Acceso, Rectificación, Supresión, Oposición, Limitación del Tratamiento y Portabilidad. Puede ejercer estos derechos enviando un correo a **[Tu Email de Contacto Legal]** adjuntando copia de su DNI.</p>
+                        <p class="pt-4 font-bold text-gray-900">Cerrar</p>
+                    </div>
+                `,
+                // Contenido Política de Cookies (Texto DETALLADO del usuario)
+                cookies_policy_content: `
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Política de Cookies de BDiR Maresme</h3>
+                    <div class="space-y-4">
+                        <p class="font-bold text-gray-900">1. ¿Qué son las Cookies?</p>
+                        <p>Una cookie es un pequeño fichero de texto que se descarga en el equipo del usuario al acceder a determinadas páginas web. Permiten almacenar y recuperar información sobre los hábitos de navegación de un usuario.</p>
+                        
+                        <p class="font-bold text-gray-900">2. Cookies Utilizadas</p>
+                        <p>Este sitio web utiliza o podría utilizar:</p>
+                        <ul class="list-disc list-inside ml-4 space-y-2">
+                            <li><strong>Cookies técnicas:</strong> Necesarias para el correcto funcionamiento de la web (ej. para recordar el idioma seleccionado).</li>
+                            <li><strong>Cookies de análisis:</strong> Permiten cuantificar el número de usuarios y medir la actividad de la web (ej. si se usa Google Analytics).</li>
+                        </ul>
+                        
+                        <p class="font-bold text-gray-900">3. Consentimiento y Desactivación</p>
+                        <p>Al navegar, usted acepta el uso de las cookies en las condiciones contenidas en esta Política. Puede revocar el consentimiento y modificar la configuración de las cookies en cualquier momento a través de la configuración de su navegador.</p>
+                    </div>
+                `
             },
             ca: {
-                hero_title_1: "Recupera la mobilitat.",
-                hero_title_2: "Oblida't del dolor.",
-                hero_subtitle: "El centre de fisioteràpia a Premià de Dalt per a qui busca **solucions reals** al dolor crònic i lesions. Tractament 100% individualitzat.",
-                mobile_cta: "Sol·licitar Valoració Gratuïta",
-                form_title: "Demana la teva 1a Valoració Gratuïta",
-                form_subtitle: "Et truquem per oferir-te una sessió de **valoració de 30 minuts** amb un fisioterapeuta especialitzat.",
+                hero_title_1: "Les millors tarifes de l'",
+                hero_title_2: "any ja són aquí!",
+                hero_subtitle: "Aprofita les nostres promocions especials d'alta i tarifes horàries per unir-te al centre esportiu més complet del Maresme.",
+                mobile_cta: "Sol·licitar informació d'alta",
+                form_title: "Aprofita les nostres promocions!",
+                form_subtitle: "Omple el formulari i un assessor t'informarà sobre la promoció **Black Friday 6+2** o la tarifa que més et convingui.",
                 label_name: "Nom i Cognoms",
                 placeholder_name: "Nom i Cognoms",
                 label_phone: "Telèfon Mòbil",
                 placeholder_phone: "Telèfon Mòbil",
                 label_email: "Correu Electrònic",
                 placeholder_email: "Correu Electrònic",
-                
-                label_contact_pref: "Forma de contacte preferida",
-                placeholder_contact_pref: "Com prefereixes que et contactem?",
-                option_phone: "Trucada telefònica",
+                // Traducciones para el nuevo campo de contacto (SELECT)
+                label_contact_method: "Com prefereixes que et contactem?",
+                contact_phone: "Telèfon",
+                contact_email: "Email",
+                // Traducciones para las opciones del select
+                option_phone: "Telèfon",
                 option_whatsapp: "WhatsApp",
-                option_email: "Correu electrònic",
+                option_email: "Email",
+                // Traducciones para la nueva casilla legal (Formulario)
+                form_terms_text_part1: "He llegit i accepto la",
+                form_privacy_link: "Política de Privacitat",
+                form_cookies_link: "Política de Cookies",
+                form_terms_text_part2: "i els",
+                form_legal_link: "Termes Legals",
 
-                form_legal_accept: 'He llegit i accepto la <a href="#" onclick="openLegalModal(\'privacy\', event)" class="text-bdir-blue hover:text-bdir-dark font-semibold transition-colors underline">Política de Privacitat</a> i els <a href="#" onclick="openLegalModal(\'legal\', event)" class="text-bdir-blue hover:text-bdir-dark font-semibold transition-colors underline">Termes Legals</a>.',
-
-                form_button: "VULL LA MEVA VALORACIÓ GRATUÏTA >>",
+                form_button: "VULL INFORMACIÓ D'ALTA! >>",
                 form_sending: "ENVIANT...",
                 form_privacy: "La teva privacitat és important. No compartirem les teves dades.",
                 success_title: "Sol·licitud Rebuda!",
-                success_msg: "Ens posarem en contacte amb tu ben aviat per agendar la teva sessió de valoració.",
-                benefits_title_1: "De la frustració a l'acció",
-                benefits_title_2: "(3 pilars del nostre èxit)",
-                benefit_1_title: "Tractament 100% Personalitzat",
-                benefit_1_desc: "No fem el mateix per a tothom. Sesiones individuals on el 100% del temps és per a tu, sense màquines genèriques. El teu pla s'ajusta al teu cos i objectius.",
-                benefit_2_title: "Enfocament Terapèutic Global",
-                benefit_2_desc: "Abordem el problema des de l'arrel (postura, estrès, historial). Teràpia manual avançada, punció seca, electròlisi percutània i exercici terapèutic.",
-                benefit_3_title: "Especialistes en dolor crònic",
-                benefit_3_desc: "Si has provat de tot sin éxit, som la teva última parada. Cervicalgies, lumbàlgies persistents i fibromiàlgia. Et retornem el control del teu cos.",
-                social_proof_intro: "\"La solució professional i definitiva per a la mobilitat i el dolor al Maresme.\"",
-                testimonial_quote: "\"He passat per diversos centres i ningú havia trobat l'origen del meu dolor d'espatlla. Amb la teràpia de Fisioteràpia Maresme per fi torno a dormir i a fer esport sense por.\"",
-                cta_final_title: "Cansat/da de viure limitat/da pel dolor?",
-                cta_final_desc: "No deixis que el dolor controli la teva vida. Reserva la teva valoració gratuïta i comença a moure't sense límits avui mateix.",
-                cta_final_btn: "VULL LA MEVA VALORACIÓ FISIOTERAPÈUTICA GRATUÏTA",
+                success_msg: "Un assessor es posarà en contacte amb tu per resoldre tots els teus dubtes i ajudar-te amb el procés d'alta.",
                 
-                // Textos del FOOTER y MODAL
+                // Black Friday
+                promo_tag: "OFERTA LIMITADA!",
+                bf_title_1: "Black Friday BDiR: ",
+                bf_title_2: "6 MESOS + 2 GRATIS",
+                bf_subtitle: "Paga 6 mesos i gaudeix de 8 mesos complets d'accés total. Estalvia en la teva quota anual i comença ja!",
+                bf_benefit_1_title: "8 Mesos d'Accés",
+                bf_benefit_1_desc: "Gaudeix de dos mesos addicionals sense cost. El millor moment per començar!",
+                bf_benefit_2_title: "Accés Total (Full Day)",
+                bf_benefit_2_desc: "Accedeix a totes les instal·lacions en qualsevol horari, de dilluns a diumenge.",
+                bf_benefit_3_title: "Activitats Dirigides",
+                bf_benefit_3_desc: "Més de 40 activitats dirigides (incloent-hi Entrenament Funcional).",
+                bf_cta_btn: "M'INTERESSA L'OFERTA BLACK FRIDAY!",
+                
+                // Tarifas Horàries
+                tariffs_title: "O tria la tarifa que s'ajusta al teu horari",
+                tariffs_subtitle: "Màxima flexibilitat per entrenar només quan ho necessites, amb preus més ajustats.",
+                tariff_morning_title: "Morning",
+                tariff_morning_time: "Dilluns a Divendres: 6:30h - 11:00h",
+                tariff_mid_title: "Mid Dia",
+                tariff_mid_time: "Dilluns a Divendres: 11:00h - 16:00h",
+                tariff_night_title: "Nit",
+                tariff_night_time: "Dilluns a Divendres: 20:30h - 22:30h",
+                tariff_weekend_title: "Cap de Setmana",
+                tariff_weekend_time: "Dissabtes i Diumenges: Horari Complet",
+                tariff_feat_gym: "Accés a Sala Fitness.",
+                tariff_feat_activities: "Activitats Dirigides incloses.",
+                tariffs_note: "*Consulta les bases i condicions específiques de cada tarifa a recepció. Totes les tarifes es paguen en quota mensual.",
+                
+                // Testimonio
+                social_proof_intro: "\"Més que un gimnàs, una comunitat dedicada al teu benestar.\"",
+                testimonial_quote: "\"Les instal·lacions són de 10, i l'ambient és immillorable. Vaig començar amb la tarifa Mid Dia i ara me he passat a la Full Day. Totalment recomendable.\"",
+                
+                // CTA Final
+                cta_final_title: "No esperis més per començar el teu canvi.",
+                cta_final_desc: "Informa't sense compromís sobre les nostres promocions i plans. Places limitades en les tarifes horàries!",
+                cta_final_btn: "SOL·LICITAR INFORMACIÓ ARA",
+                
+                // Footer
                 footer_privacy: "Política de Privacitat",
                 footer_cookies: "Política de Cookies",
                 footer_legal: "Avís Legal",
                 footer_rights: "&copy; 2025 BDiR Maresme. Tots els drets reservats.",
-                whatsapp_message: "Vull sol·licitar la meva valoració fisioterapèutica gratuïta",
-
-                // *** NOUS TEXTOS D'AVÍS LEGAL ***
-                legal_title: "Avís Legal de BDiR Maresme",
-                legal_section_1_title: "1. Dades Identificatives del Titular",
-                legal_section_1_intro: "En compliment amb el deure d'informació recollit a l'article 10 de la Llei 34/2002, d'11 de juliol, de Serveis de la Societat de la Informació i del Comerç Electrònic (LSSI-CE), s'informa de:",
-                legal_id_owner: "Titular del Lloc Web: **[Nom de l'Empresa o Persona Física]**",
-                legal_id_nif: "NIF/CIF: **[El teu NIF/CIF]**",
-                legal_id_address: "Domicili Social: **[La teva adreça completa]**",
-                legal_id_email: "Correu Electrònic: **[El teu Correu Electrònic de Contacte]**",
-                legal_id_activity: "Activitat: **[La teva activitat principal, exemple: Gestió de centres esportius i fitness]**",
-                legal_section_2_title: "2. Propietat Intel·lectual i Industrial",
-                legal_section_2_content: "BDiR Maresme, per si o com a cessionària, és titular de tots els drets de propietat intel·lectual i industrial del lloc web.",
-                legal_section_3_title: "3. Exclusió de Garanties i Responsabilitat",
-                legal_section_3_content: "BDiR Maresme no es fa responsable dels danys i perjudicis que puguin ocasionar, a títol enunciatiu: errors o omissions en els continguts, manca de disponibilitat del portal o la transmissió de virus o programes maliciosos en els continguts.",
-
-                // *** NOUS TEXTOS DE POLÍTICA DE PRIVACITAT ***
-                privacy_title: "Política de Privacitat de BDiR Maresme",
-                privacy_section_1_title: "1. Responsable del Tractament",
-                privacy_section_1_content: "L'entitat responsable del tractament de les seves dades és **[Nom de l'Empresa o Persona Física, exemple: BDiR Maresme S.L.]**, amb NIF/CIF **[El teu NIF/CIF]** i domicili a **[La teva adreça completa]**. Per a qualsevol consulta, pot contactar-nos al correu electrònic: **[El teu Correu Electrònic de Contacte Legal, exemple: legal@bdirmaresme.com]**.",
-                privacy_section_2_title: "2. Dades Recollides i Finalitat",
-                privacy_section_2_content: "Les dades recollides a través de formularis (nom, email, telèfon) tenen com a finalitat exclusiva la **gestió de la sol·licitud d'informació o contacte comercial** (sessió de prova) iniciada per l'usuari. També podran ser utilitzades per a l'enviament de comunicacions comercials relatives als nostres serveis, si l'usuari ha donat el seu consentiment exprés.",
-                privacy_section_3_title: "3. Base Legal per al Tractament",
-                privacy_section_3_content: "La base legal per al tractament és el **consentiment** de l'interessat en omplir i enviar el formulari (Art. 6.1.a del RGPD).",
-                privacy_section_4_title: "4. Drets de l'Usuari",
-                privacy_section_4_content: "Vostè té dret a exercir els seus drets d'Accés, Rectificació, Supressió, Oposició, Limitació del Tractament i Portabilitat. Pot exercir aquests drets enviant un correu a **[El teu Correu Electrònic de Contacte Legal]** adjuntant còpia del seu DNI.",
+                whatsapp_message: "Vull sol·licitar informació sobre les promocions d'alta",
                 
-                // Textos para el MODAL DE COOKIES (MANTENIDOS)
-                cookies_title: "Política de Cookies de BDiR Maresme",
-                cookies_intro: "El lloc web utilitza cookies per millorar l'experiència de l'usuari.",
-                cookies_section_1_title: "1. Què són les Galetes (Cookies)?",
-                cookies_section_1_content: "Una galeta és un petit fitxer de text que es descarrega a l'equip de l'usuari en accedir a determinades pàgines web. Permeten emmagatzemar i recuperar informació sobre els hàbits de navegació d'un usuari.",
-                cookies_section_2_title: "2. Galetes Utilitzades",
-                cookies_section_2_content_intro: "Aquest lloc web utilitza o podria utilitzar:",
-                cookies_type_tech: "**Galetes tècniques:** Necessàries per al correcte funcionament del web.",
-                cookies_type_anal: "**Galetes d'anàlisi:** Permeten quantificar el nombre d'usuaris i mesurar l'activitat del web (ej. si s'utilitza Google Analytics).",
-                cookies_section_3_title: "3. Consentiment i Desactivació",
-                cookies_section_3_content: "En navegar, vostè accepta l'ús de les galetes en les condicions contingudes en aquesta Política. Pot revocar el consentiment i modificar la configuració de les galetes en qualsevol moment a través de la configuració del seu navegador.",
+                // MODAL / AVISO LEGAL (Catalan)
+                modal_close_btn: "Tancar",
+                modal_title_legal: "Avís Legal",
+                modal_title_privacy: "Política de Privacitat",
+                modal_title_cookies: "Política de Cookies",
+                
+                // Contenido Aviso Legal
+                legal_notice_content: `
+                    <p class="text-base font-semibold text-gray-800">Avís Legal de BDiR Maresme</p>
+                    <div class="space-y-2">
+                        <p class="font-bold text-gray-900">1. Dades Identificatives del Titular</p>
+                        <p>En compliment amb el deure d'informació recollit a l'article 10 de la Llei 34/2002, d'11 de juliol, de Serveis de la Societat de la Informació i del Comerç Electrònic (LSSI-CE), s'informa de:</p>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li>**Titular del Lloc Web:** [Nom de l'Empresa o Persona Física]</li>
+                            <li>**NIF/CIF:** [El teu NIF/CIF]</li>
+                            <li>**Domicili Social:** [La teva adreça completa]</li>
+                            <li>**Correu Electrònic:** [El teu Correu Electrònic de Contacte]</li>
+                            <li>**Activitat:** [La teva activitat principal, exemple: Gestió de centres esportius i fitness]</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-2 pt-2">
+                        <p class="font-bold text-gray-900">2. Propietat Intel·lectual i Industrial</p>
+                        <p>BDiR Maresme, per si o com a cessionària, és titular de tots els drets de propietat intel·lectual i industrial del lloc web.</p>
+                    </div>
+                    <div class="space-y-2 pt-2">
+                        <p class="font-bold text-gray-900">3. Exclusió de Garanties i Responsabilitat</p>
+                        <p>BDiR Maresme no es fa responsable dels danys i perjudicis que puguin ocasionar, a títol enunciatiu: errors o omissions en els continguts, manca de disponibilitat del portal o la transmissió de virus o programes maliciosos en els continguts.</p>
+                    </div>
+                `,
+                // Contenido Política de Privacidad (ACTUALIZADO EN CATALÁN)
+                privacy_policy_content: `
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Política de Privacitat de BDiR Maresme</h3>
+                    <div class="space-y-4">
+                        <p class="font-bold text-gray-900">1. Responsable del Tractament</p>
+                        <p>L'entitat responsable del tractament de les seves dades és **[Nom de l'Empresa o Persona Física, exemple: BDiR Maresme S.L.]**, amb NIF/CIF **[El teu NIF/CIF]** i domicili a **[La teva adreça completa]**. Per a qualsevol consulta, pot contactar-nos al correu electrònic: **[El teu Correu Electrònic Legal, exemple: legal@bdirmaresme.com]**.</p>
+                        
+                        <p class="font-bold text-gray-900">2. Dades Recollides i Finalitat</p>
+                        <p>Les dades recollides a través de formularis (nom, email, telèfon) tenen com a finalitat exclusiva la **gestió de la sol·licitud d'informació o contacte comercial** (sessió de prova) iniciada per l'usuari. També podran ser utilitzades per a l'enviament de comunicacions comercials relatives als nostres serveis, si l'usuari ha donat el seu consentiment exprés.</p>
+                        
+                        <p class="font-bold text-gray-900">3. Base Legal per al Tractament</p>
+                        <p>La base legal per al tractament és el **consentiment** de l'interessat en emplenar i enviar el formulari (Art. 6.1.a del RGPD).</p>
+                        
+                        <p class="font-bold text-gray-900">4. Drets de l'Usuari</p>
+                        <p>Vostè té dret a exercir els seus drets d'Accés, Rectificació, Supressió, Oposició, Limitació del Tractament i Portabilitat. Pot exercir aquests drets enviant un correu a **[El teu Correu Electrònic Legal]** adjuntant còpia del seu DNI.</p>
+                        <p class="pt-4 font-bold text-gray-900">Tancar</p>
+                    </div>
+                `,
+                // Contenido Política de Cookies (Texto DETALLADO del usuario en Catalán)
+                cookies_policy_content: `
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Política de Cookies de BDiR Maresme</h3>
+                    <div class="space-y-4">
+                        <p class="font-bold text-gray-900">1. Què són les Cookies?</p>
+                        <p>Una galeta (cookie) és un petit fitxer de text que es descarrega a l'equip de l'usuari en accedir a determinades pàgines web. Permeten emmagatzemar i recuperar informació sobre els hàbits de navegació d'un usuari.</p>
+                        
+                        <p class="font-bold text-gray-900">2. Galetes Utilitzades</p>
+                        <p>Aquest lloc web utilitza o podria utilitzar:</p>
+                        <ul class="list-disc list-inside ml-4 space-y-2">
+                            <li><strong>Galetes tècniques:</strong> Necessàries per al correcte funcionament del web (ex. per recordar l'idioma seleccionat).</li>
+                            <li><strong>Galetes d'anàlisi:</strong> Permeten quantificar el nombre d'usuaris i mesurar l'activitat del web (ex. si s'utilitza Google Analytics).</li>
+                        </ul>
+                        
+                        <p class="font-bold text-gray-900">3. Consentiment i Desactivació</p>
+                        <p>En navegar, vostè accepta l'ús de les galetes en les condicions contingudes en aquesta Política. Pot revocar el consentiment i modificar la configuració de les galetes en qualsevol moment a través de la configuració del seu navegador.</p>
+                    </div>
+                `
             }
         };
 
@@ -631,7 +832,7 @@
             elements.forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) {
-                    // Usar innerHTML para permitir etiquetas HTML como <a>, <strong> o el contenido de listas
+                    // Usar innerHTML para permitir etiquetas HTML como <span> o **
                     el.innerHTML = translations[lang][key]; 
                 }
             });
@@ -645,174 +846,175 @@
                 }
             });
             
-            // C. Actualizar opciones del select
-            const options = document.querySelectorAll('option[data-i18n]');
-             options.forEach(op => {
-                const key = op.getAttribute('data-i18n');
+            // C. Actualizar opciones del select (opciones con data-i18n)
+            const selectOptions = document.querySelectorAll('#contact_method option[data-i18n]');
+            selectOptions.forEach(option => {
+                const key = option.getAttribute('data-i18n');
                 if (translations[lang][key]) {
-                    op.text = translations[lang][key];
+                    option.textContent = translations[lang][key];
                 }
             });
 
-            // D. Actualizar el enlace de WhatsApp
+            // D. Actualizar botones activos y lang
+            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+            document.getElementById('btn-ca').classList.toggle('active', lang === 'ca');
+            document.documentElement.lang = lang;
+            
+            // E. Actualizar el enlace de WhatsApp
             const whatsappLink = document.getElementById('whatsapp-link-footer');
             const message = translations[lang]['whatsapp_message'];
             if (whatsappLink && message) {
                 const encodedMessage = encodeURIComponent(message);
                 whatsappLink.href = `https://wa.me/34682334580?text=${encodedMessage}`;
             }
-
-            // E. Actualizar botones activos y lang
-            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
-            document.getElementById('btn-ca').classList.toggle('active', lang === 'ca');
-            document.documentElement.lang = lang;
-        }
-
-        // 5. FUNCIÓN DE ENVÍO REAL (AJAX a FormSubmit)
-        function submitForm(e) {
-            e.preventDefault();
             
-            const btn = document.getElementById('submit-btn');
-            const form = e.target;
-            const lang = document.documentElement.lang;
-            const originalText = translations[lang].form_button;
-            const sendingText = translations[lang].form_sending;
-            
-            // 1. Mostrar estado de carga
-            btn.disabled = true;
-            btn.classList.add('loading');
-            btn.innerHTML = `<span class="spinner"></span>${sendingText}`;
-            
-            // 2. Construir datos del formulario
-            const formData = new FormData(form);
-            const data = {
-                _subject: formData.get('_subject'),
-                _captcha: formData.get('_captcha'),
-                _template: formData.get('_template'),
-                Nombre: formData.get('nombre'),
-                Teléfono: formData.get('telefono'),
-                Email: formData.get('email'),
-                Preferencia_Contacto: formData.get('preferencia_contacto') || 'No especificado',
-                // Capturamos el valor del checkbox por el atributo name="legal_checkbox"
-                Aceptación_Legal: formData.get('legal_checkbox') ? 'Aceptada' : 'No aceptada',
-                _language: lang
-            };
-
-            // 3. Simular el envío a FormSubmit
-            const formSubmitUrl = `https://formsubmit.co/${emailDestino}`;
-
-            fetch(formSubmitUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => {
-                // Simulación: FormSubmit siempre devuelve un código 200/201 aunque el envío pueda fallar
-                if (response.ok || response.status === 200) {
-                    showSuccess();
-                } else {
-                    console.error("Error simulado o de red al enviar el formulario.");
-                    showSuccess();
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                showSuccess();
-            })
-            .finally(() => {
-                // Restablecer el botón
-                btn.classList.remove('loading');
-                btn.innerHTML = `<span data-i18n="form_button">${originalText}</span>`; 
-                
-                // Volver a aplicar la lógica de deshabilitado post-envío
-                toggleSubmitButton(); 
-                
-                // Re-inicializar Lucide icons para el check-circle en la vista de éxito
-                lucide.createIcons();
-            });
+            // F. Actualizar el texto del botón del formulario al idioma actual
+            const currentPromo = document.getElementById('promocion_interes').value;
+            updateFormButtonText(currentPromo, lang);
         }
         
-        // 6. Función para mostrar la vista de éxito
-        function showSuccess() {
-            document.getElementById('form-view').classList.add('hidden');
-            document.getElementById('success-view').classList.remove('hidden');
-            // Desplazarse al formulario para ver la confirmación
-            document.getElementById('formulario').scrollIntoView({ behavior: 'smooth' });
+        // 5. Función para establecer el valor de la promoción en el campo oculto y actualizar el texto del botón
+        function setPromo(promoName) {
+            document.getElementById('promocion_interes').value = promoName;
+            // Asegura el scroll suave al formulario
+            document.getElementById('formulario').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            updateFormButtonText(promoName, document.documentElement.lang);
         }
 
-        // 7. Lógica para habilitar/deshabilitar el botón
-        function toggleSubmitButton() {
-            const checkbox = document.getElementById('legal-checkbox');
-            const submitButton = document.getElementById('submit-btn');
+        // 6. Función auxiliar para actualizar el texto del botón
+        function updateFormButtonText(promoName, lang) {
+            const btn = document.getElementById('submit-btn');
+            const btnSpan = btn.querySelector('span');
+            const originalButtonText = translations[lang].form_button;
             
-            // Habilitar el botón si el checkbox está marcado
-            submitButton.disabled = !checkbox.checked;
-        }
-
-        // 8. Funciones para el Modal de Avisos Legales
-        function openLegalModal(type, event) {
-            // Previene la navegación por defecto del enlace
-            if (event) event.preventDefault(); 
-            
-            const modal = document.getElementById('legal-modal');
-            const title = document.getElementById('modal-title');
-            
-            // Ocultar todos los contenidos y restablecer el título
-            document.getElementById('legal-content').classList.add('hidden');
-            document.getElementById('privacy-content').classList.add('hidden');
-            document.getElementById('cookies-content').classList.add('hidden');
-            title.textContent = '';
-            
-            // Mostrar el contenido correcto y establecer el título
-            const lang = document.documentElement.lang;
-            
-            switch (type) {
-                case 'legal':
-                    document.getElementById('legal-content').classList.remove('hidden');
-                    title.textContent = translations[lang]['footer_legal'];
-                    break;
-                case 'privacy':
-                    document.getElementById('privacy-content').classList.remove('hidden');
-                    title.textContent = translations[lang]['footer_privacy'];
-                    break;
-                case 'cookies':
-                    document.getElementById('cookies-content').classList.remove('hidden');
-                    title.textContent = translations[lang]['footer_cookies'];
-                    break;
+            if (promoName === 'Alta General' || promoName === 'Black Friday 6+2') {
+                btnSpan.innerHTML = originalButtonText;
+            } else {
+                // Para tarifas horarias (Morning, Mid Dia, Nit, Cap de Setmana)
+                btnSpan.innerHTML = (lang === 'es' ? `Información ${promoName}` : `Informació ${promoName}`) + ' >>';
             }
+        }
+        
+        // 7. Funcionalidad para abrir y cerrar el modal (Aviso Legal / Política de Privacidad / Política de Cookies)
+        const modal = document.getElementById('legalModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContentContainer = document.getElementById('modalContentContainer');
 
-            // Mostrar el modal
-            modal.classList.remove('hidden');
-            document.body.classList.add('overflow-hidden'); // Evita el scroll del cuerpo
+        function openLegalModal(type) {
+            const currentLang = document.documentElement.lang;
             
-            // Re-aplicar traducciones al modal y recrear iconos
-            changeLanguage(lang); 
-            lucide.createIcons();
+            // 1. Establecer el título y contenido según el tipo
+            if (type === 'legal') {
+                modalTitle.textContent = translations[currentLang].modal_title_legal;
+                modalContentContainer.innerHTML = translations[currentLang].legal_notice_content;
+            } else if (type === 'privacy') {
+                modalTitle.textContent = translations[currentLang].modal_title_privacy;
+                modalContentContainer.innerHTML = translations[currentLang].privacy_policy_content;
+            } else if (type === 'cookies') {
+                modalTitle.textContent = translations[currentLang].modal_title_cookies;
+                modalContentContainer.innerHTML = translations[currentLang].cookies_policy_content;
+            }
+            
+            // 2. Mostrar el modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Evita el scroll del body
         }
 
         function closeModal() {
-            document.getElementById('legal-modal').classList.add('hidden');
-            document.body.classList.remove('overflow-hidden');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = ''; // Restaura el scroll del body
         }
-        
-        // Cierre del modal con la tecla ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !document.getElementById('legal-modal').classList.contains('hidden')) {
-                closeModal();
+
+        // 8. Función para enviar el formulario
+        async function submitForm(event) {
+            event.preventDefault(); // Detiene el envío estándar del formulario
+            
+            const form = event.target;
+            const submitBtn = document.getElementById('submit-btn');
+            const btnSpan = submitBtn.querySelector('span');
+
+            const currentLang = document.documentElement.lang;
+            const originalButtonText = btnSpan.innerHTML; // Guardamos el texto actual (incluyendo promo si aplica)
+
+            // Deshabilitar botón y mostrar loading
+            submitBtn.disabled = true;
+            btnSpan.innerHTML = `<span class="spinner"></span> ${translations[currentLang].form_sending}`;
+            
+            // URL de FormSubmit (usando el campo oculto _parsed_action para FormSubmit)
+            const formActionUrl = `https://formsubmit.co/${emailDestino}`;
+
+            try {
+                // Crear un objeto FormData a partir del formulario
+                const formData = new FormData(form);
+
+                // Convertir FormData a un objeto plano para JSON.stringify
+                const data = {};
+                formData.forEach((value, key) => { data[key] = value; });
+                
+                // Añadir el idioma al que se envió el formulario
+                data['idioma_lead'] = currentLang.toUpperCase();
+                
+                const response = await fetch(formActionUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    // Ocultar formulario y mostrar mensaje de éxito
+                    document.getElementById('form-view').classList.add('hidden');
+                    document.getElementById('success-view').classList.remove('hidden');
+                    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll al éxito
+                } else {
+                    // Manejo de errores de FormSubmit
+                    // Añadido un mensaje de error genérico si no existe una traducción específica
+                    const errorMessage = translations[currentLang].error_send || (currentLang === 'es' ? 'Error al enviar el formulario. Inténtalo de nuevo.' : 'Error en enviar el formulari. Torna-ho a intentar.');
+                    throw new Error(errorMessage);
+                }
+            } catch (error) {
+                console.error('Error en el envío:', error);
+                // Mostrar un mensaje de error visible, no usamos alert()
+                const errorContainer = form.parentNode.querySelector('.error-message') || document.createElement('p');
+                errorContainer.className = 'text-center text-sm text-red-500 mt-3 error-message';
+                errorContainer.textContent = error.message;
+                if (!form.parentNode.querySelector('.error-message')) {
+                    form.parentNode.insertBefore(errorContainer, form.nextSibling);
+                }
+            } finally {
+                // Restaurar botón (Solo si no fue exitoso, si fue exitoso la vista cambia)
+                if (document.getElementById('success-view').classList.contains('hidden')) {
+                    submitBtn.disabled = false;
+                    btnSpan.innerHTML = originalButtonText;
+                }
             }
-        });
+        }
 
-
-        // 9. Inicialización: Aplicar idioma por defecto al cargar
+        // 9. Inicialización
         document.addEventListener('DOMContentLoaded', () => {
-            changeLanguage('es');
-            // Inicializar iconos de Lucide (necesario tras cargar el DOM)
+            // Inicializar Lucide Icons
             lucide.createIcons();
-            // Asegurar que el botón de envío está deshabilitado al cargar la página.
-            toggleSubmitButton();
+            
+            // Establecer idioma inicial (por defecto español)
+            changeLanguage('es'); 
+
+            // Cerrar el modal al hacer clic fuera del contenido (en el overlay)
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Cerrar el modal al presionar la tecla ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
         });
     </script>
 </body>

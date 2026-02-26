@@ -5,35 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BDiR Maresme - ¡Promociones Exclusivas de Alta de Socio!</title>
     
-    <!-- 1. IMPORTAR TAILWIND CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- 2. CONFIGURACIÓN DE FUENTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
-    <!-- 3. IMPORTAR ICONOS -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Configuración de estilos personalizados -->
     <style>
         body { font-family: 'Open Sans', sans-serif; }
         h1, h2, h3, h4, button, .font-title { font-family: 'Montserrat', sans-serif; }
         
-        /* Color azul BDiR personalizado */
         .text-bdir-blue { color: #009FE3; }
         .bg-bdir-blue { background-color: #009FE3; }
         .border-bdir-blue { border-color: #009FE3; }
         .hover-bg-bdir-dark:hover { background-color: #007bb0; }
         .ring-bdir-blue:focus { --tw-ring-color: #009FE3; }
         
-        /* Estilos para el selector de idioma */
         .lang-btn { cursor: pointer; transition: opacity 0.2s; }
         .lang-btn.active { font-weight: bold; text-decoration: underline; color: #009FE3; }
         .lang-btn:hover { opacity: 0.8; }
         
-        /* Loading spinner para el botón */
         .spinner {
             border: 3px solid rgba(255,255,255,0.3);
             border-radius: 50%;
@@ -46,7 +39,6 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
-        /* Estilo para los select */
         select {
             appearance: none;
             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236B7280'%3e%3cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3e%3c/svg%3e");
@@ -58,7 +50,6 @@
 
         html { scroll-behavior: smooth; }
         
-        /* Estilos para el modal */
         .modal-overlay {
             z-index: 50;
             background-color: rgba(0, 0, 0, 0.7);
@@ -67,26 +58,22 @@
 </head>
 <body class="min-h-screen bg-white font-sans text-gray-800 antialiased selection:bg-blue-100 selection:text-blue-900">
 
-    <!-- --- HERO SECTION --- -->
+    <!-- HERO SECTION -->
     <header class="relative bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto">
             <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
                 
-                <!-- SVG Fondo -->
                 <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                     <polygon points="50,0 100,0 50,100 0,100" />
                 </svg>
 
-                <!-- HEADER SUPERIOR: LOGO + IDIOMAS -->
                 <div class="pt-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-                    <!-- LOGO -->
                     <div class="flex items-center">
                         <a href="https://cmbdirmaresme-bot.github.io/landing-bdir-home/#" class="text-2xl font-bold tracking-tighter text-bdir-blue font-title hover:text-[#007bb0] transition-colors">
                             BDiR <span class="font-light text-gray-500 ml-1">Maresme</span>
                         </a>
                     </div>
                     
-                    <!-- SELECTOR DE IDIOMA -->
                     <div class="flex space-x-2 text-sm font-semibold text-gray-500 z-50 relative">
                         <button onclick="changeLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
                         <span>|</span>
@@ -104,7 +91,6 @@
                             Aprovecha nuestras promociones especiales de alta y tarifas horarias para unirte al centro deportivo más completo del Maresme.
                         </p>
                         
-                        <!-- Botón Móvil -->
                         <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start lg:hidden">
                             <a href="#formulario" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-bdir-blue hover-bg-bdir-dark transition-colors">
                                 Solicitar información de alta
@@ -115,21 +101,17 @@
             </div>
         </div>
 
-        <!-- IMAGEN HERO Y CONTENEDOR FORMULARIO -->
         <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-gray-100 flex items-center justify-center relative h-96 lg:h-auto">
-            <!-- Imagen de fondo -->
             <div class="absolute inset-0 w-full h-full">
                 <img class="h-full w-full object-cover opacity-90" 
                      src="https://placehold.co/1000x800/009FE3/ffffff?text=BDiR%20Maresme%20%7C%20Gimnasio" 
-                     alt="Instalaciones modernas de gimnasio con equipamiento de fitness">
+                     alt="Instalaciones modernas de gimnasio">
                 <div class="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent lg:via-transparent"></div>
             </div>
 
-            <!-- FORMULARIO FLOTANTE -->
             <div id="formulario" class="relative z-20 w-full max-w-md px-4 py-10 lg:mr-12">
                 <div class="bg-white rounded-xl shadow-2xl p-6 border-t-4 border-bdir-blue">
                     
-                    <!-- Vista del Formulario -->
                     <div id="form-view">
                         <h3 class="text-xl font-bold text-gray-900 text-center mb-2 font-title" data-i18n="form_title">
                             ¡Aprovecha nuestras promociones!
@@ -138,64 +120,58 @@
                             Rellena el formulario y un asesor te informará sobre la promoción o la tarifa que más te convenga.
                         </p>
                         
-                        <!-- FORMULARIO -->
                         <form onsubmit="submitForm(event)" class="space-y-4">
                             <input type="hidden" name="_subject" value="Nuevo Lead Promociones Alta Socio - Landing Page">
                             <input type="hidden" name="_captcha" value="false">
                             <input type="hidden" name="_template" value="table">
                             <input type="hidden" name="promocion_interes" id="promocion_interes" value="Alta General">
 
-                            <!-- Método de contacto -->
-                            <div class="space-y-1">
+                            <!-- MÉTODO DE CONTACTO -->
+                            <div class="space-y-2">
                                 <label for="contact_method" class="block text-sm font-semibold text-gray-700" data-i18n="label_contact_method">
                                     ¿Cómo prefieres que te contactemos?
                                 </label>
-                                <div class="relative">
-                                    <select id="contact_method" name="metodo_contacto" required onchange="updateContactFields(this.value)" class="block w-full rounded-md border-gray-300 bg-gray-50 border px-4 py-3 text-gray-900 focus:border-bdir-blue focus:ring-bdir-blue focus:outline-none transition">
-                                        <option value="" selected disabled data-i18n="select_option">— Selecciona una opción —</option>
-                                        <option value="Telefono" data-i18n="option_phone">Teléfono</option>
-                                        <option value="WhatsApp" data-i18n="option_whatsapp">WhatsApp</option>
-                                        <option value="Email" data-i18n="option_email">Email</option>
-                                    </select>
-                                </div>
+                                <select id="contact_method" name="metodo_contacto" required onchange="updateContactFields(this.value)" class="block w-full rounded-md border-gray-300 bg-gray-50 border px-4 py-3 text-gray-900 focus:border-bdir-blue focus:ring-bdir-blue focus:outline-none transition">
+                                    <option value="">-- Selecciona --</option>
+                                    <option value="Telefono" data-i18n="option_phone">Teléfono</option>
+                                    <option value="WhatsApp" data-i18n="option_whatsapp">WhatsApp</option>
+                                    <option value="Email" data-i18n="option_email">Email</option>
+                                </select>
                             </div>
 
-                            <!-- Campo Nombre -->
+                            <!-- NOMBRE -->
                             <div id="fieldNombre" class="hidden">
-                                <label for="nombre" class="sr-only">Nombre</label>
-                                <input type="text" id="nombre" name="nombre" placeholder="Nombre" 
-                                       class="block w-full rounded-md border-gray-300 bg-gray-50 border px-4 py-3 text-gray-900 focus:border-bdir-blue focus:ring-bdir-blue focus:outline-none transition"
-                                       disabled>
+                                <label for="nombre" class="block text-sm font-semibold text-gray-700">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" 
+                                       class="block w-full rounded-md border-gray-300 bg-gray-50 border px-4 py-3 text-gray-900 focus:border-bdir-blue focus:ring-bdir-blue focus:outline-none transition">
                             </div>
 
-                            <!-- Campo Teléfono -->
+                            <!-- TELÉFONO -->
                             <div id="fieldTelefono" class="hidden">
-                                <label for="telefono" class="sr-only">Teléfono Móvil</label>
-                                <input type="tel" id="telefono" name="telefono" placeholder="Teléfono Móvil" 
-                                       class="block w-full rounded-md border-gray-300 bg-gray-50 border px-4 py-3 text-gray-900 focus:border-bdir-blue focus:ring-bdir-blue focus:outline-none transition"
-                                       disabled>
+                                <label for="telefono" class="block text-sm font-semibold text-gray-700">Teléfono Móvil</label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="Ej: 93 123 45 67" 
+                                       class="block w-full rounded-md border-gray-300 bg-gray-50 border px-4 py-3 text-gray-900 focus:border-bdir-blue focus:ring-bdir-blue focus:outline-none transition">
                             </div>
 
-                            <!-- Campo Email -->
+                            <!-- EMAIL -->
                             <div id="fieldEmail" class="hidden">
-                                <label for="email" class="sr-only">Correo Electrónico</label>
-                                <input type="email" id="email" name="email" placeholder="Correo Electrónico" 
-                                       class="block w-full rounded-md border-gray-300 bg-gray-50 border px-4 py-3 text-gray-900 focus:border-bdir-blue focus:ring-bdir-blue focus:outline-none transition"
-                                       disabled>
+                                <label for="email" class="block text-sm font-semibold text-gray-700">Correo Electrónico</label>
+                                <input type="email" id="email" name="email" placeholder="tu@email.com" 
+                                       class="block w-full rounded-md border-gray-300 bg-gray-50 border px-4 py-3 text-gray-900 focus:border-bdir-blue focus:ring-bdir-blue focus:outline-none transition">
                             </div>
 
-                            <!-- CASILLA DE TÉRMINOS LEGALES -->
+                            <!-- TÉRMINOS -->
                             <div class="flex items-start pt-2">
                                 <div class="flex items-center h-5">
                                     <input id="terms" name="terms_accepted" type="checkbox" required class="focus:ring-bdir-blue h-4 w-4 text-bdir-blue border-gray-300 rounded">
                                 </div>
-                                <div class="ml-3 text-sm">
-                                    <label for="terms" class="font-medium text-gray-700">
+                                <div class="ml-3 text-xs leading-5">
+                                    <label for="terms" class="font-medium text-gray-600">
                                         <span data-i18n="form_terms_text_part1">He leído y acepto la</span> 
-                                        <a href="#" onclick="openLegalModal('privacy'); return false;" class="text-bdir-blue hover:underline cursor-pointer font-bold" data-i18n="form_privacy_link">Política de Privacidad</a>,
-                                        <a href="#" onclick="openLegalModal('cookies'); return false;" class="text-bdir-blue hover:underline cursor-pointer font-bold" data-i18n="form_cookies_link">Política de Cookies</a>
+                                        <a href="#" onclick="openLegalModal('privacy'); return false;" class="text-bdir-blue hover:underline font-bold" data-i18n="form_privacy_link">Política de Privacidad</a>,
+                                        <a href="#" onclick="openLegalModal('cookies'); return false;" class="text-bdir-blue hover:underline font-bold" data-i18n="form_cookies_link">Política de Cookies</a>
                                         <span data-i18n="form_terms_text_part2">y los</span> 
-                                        <a href="#" onclick="openLegalModal('legal'); return false;" class="text-bdir-blue hover:underline cursor-pointer font-bold" data-i18n="form_legal_link">Términos Legales</a>
+                                        <a href="#" onclick="openLegalModal('legal'); return false;" class="text-bdir-blue hover:underline font-bold" data-i18n="form_legal_link">Términos Legales</a>
                                     </label>
                                 </div>
                             </div>
@@ -209,14 +185,14 @@
                         </form>
                     </div>
 
-                    <!-- Vista de Éxito -->
+                    <!-- ÉXITO -->
                     <div id="success-view" class="hidden text-center py-10">
                         <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
                             <i data-lucide="check-circle" class="h-8 w-8 text-green-600"></i>
                         </div>
                         <h3 class="text-lg leading-6 font-medium text-gray-900 font-title" data-i18n="success_title">¡Solicitud Recibida!</h3>
                         <p class="mt-2 text-sm text-gray-500" data-i18n="success_msg">
-                            Un asesor se pondrá en contacto contigo para resolver todas tus dudas y ayudarte con el proceso de alta.
+                            Un asesor se pondrá en contacto contigo para resolver todas tus dudas.
                         </p>
                     </div>
 
@@ -225,7 +201,7 @@
         </div>
     </header>
 
-    <!-- --- SECCIÓN Promo 9+3 --- -->
+    <!-- SECCIÓN PROMO -->
     <section class="py-16 bg-[#F5F5F5]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-4xl mx-auto mb-12">
@@ -237,48 +213,45 @@
                     <span class="text-bdir-blue" data-i18n="bf_title_2">9 MESES + 3 GRATIS</span>
                 </h2>
                 <p class="mt-4 text-xl text-gray-600" data-i18n="bf_subtitle">
-                    Paga 9 meses y disfruta de 12 meses completos de acceso total. ¡Ahorra en tu cuota anual y empieza ya!
+                    Paga 9 meses y disfruta de 12 meses completos de acceso total.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <!-- Beneficio BF 1 -->
                 <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-bdir-blue">
                     <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-50 text-bdir-blue mb-4">
                         <i data-lucide="calendar-check" class="h-8 w-8"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2 font-title" data-i18n="bf_benefit_1_title">12 Meses de Acceso</h3>
-                    <p class="text-gray-600" data-i18n="bf_benefit_1_desc">Obtén 25% de descuento y tres meses adicionales sin coste extra. ¡El mejor momento para empezar!</p>
+                    <p class="text-gray-600" data-i18n="bf_benefit_1_desc">Obtén 25% de descuento y tres meses adicionales sin coste extra.</p>
                 </div>
 
-                <!-- Beneficio BF 2 -->
                 <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-bdir-blue">
                     <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-50 text-bdir-blue mb-4">
                         <i data-lucide="infinity" class="h-8 w-8"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2 font-title" data-i18n="bf_benefit_2_title">Acceso Total (Full Day)</h3>
-                    <p class="text-gray-600" data-i18n="bf_benefit_2_desc">Accede a todas las instalaciones en cualquier horario, de lunes a domingo.</p>
+                    <p class="text-gray-600" data-i18n="bf_benefit_2_desc">Accede a todas las instalaciones en cualquier horario.</p>
                 </div>
                 
-                <!-- Beneficio BF 3 -->
                 <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-bdir-blue">
                     <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-50 text-bdir-blue mb-4">
                         <i data-lucide="dumbell" class="h-8 w-8"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2 font-title" data-i18n="bf_benefit_3_title">Actividades Dirigidas</h3>
-                    <p class="text-gray-600" data-i18n="bf_benefit_3_desc">Más de 40 actividades dirigidas (incluido Entrenamiento Funcional).</p>
+                    <p class="text-gray-600" data-i18n="bf_benefit_3_desc">Más de 40 actividades dirigidas.</p>
                 </div>
             </div>
             
             <div class="mt-12 text-center">
-                <a href="#formulario" class="inline-block px-8 py-3 border border-transparent text-lg font-medium rounded-md text-white bg-bdir-blue hover:bg-[#007bb0] md:py-4 md:text-xl md:px-10 shadow-xl transition-colors">
-                    ¡QUIERO APROVECHAR LA PROMO ANUAL!
+                <a href="#formulario" class="inline-block px-8 py-3 border border-transparent text-lg font-medium rounded-md text-white bg-bdir-blue hover:bg-[#007bb0] transition-colors">
+                    ¡QUIERO APROVECHAR LA PROMO!
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- --- SECCIÓN TARIFAS DISCRIMINACIÓN HORARIA --- -->
+    <!-- TARIFAS -->
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
@@ -286,15 +259,13 @@
                     O elige la tarifa que se ajusta a tu horario
                 </h2>
                 <p class="mt-4 text-lg text-gray-500" data-i18n="tariffs_subtitle">
-                    Máxima flexibilidad para entrenar solo cuando lo necesitas, con precios más ajustados.
+                    Máxima flexibilidad para entrenar solo cuando lo necesitas.
                 </p>
             </div>
 
-            <!-- Contenedor de Tarifas -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 
-                <!-- Tarifa Morning -->
-                <div class="tariff-card bg-blue-50 rounded-xl shadow-md p-6 text-center border-b-4 border-bdir-blue transition-all hover:shadow-xl">
+                <div class="bg-blue-50 rounded-xl shadow-md p-6 text-center border-b-4 border-bdir-blue transition-all hover:shadow-xl">
                     <div class="flex items-center justify-center h-12 w-12 rounded-full bg-bdir-blue text-white mx-auto mb-3">
                         <i data-lucide="sun" class="h-6 w-6"></i>
                     </div>
@@ -311,12 +282,11 @@
                         </li>
                     </ul>
                     <a href="#formulario" onclick="setPromo('Morning')" class="mt-6 inline-block w-full py-2.5 px-4 rounded-md text-sm font-bold text-white bg-bdir-blue hover-bg-bdir-dark transition-colors">
-                        Información Morning
+                        Información
                     </a>
                 </div>
 
-                <!-- Tarifa Mid Dia -->
-                <div class="tariff-card bg-blue-50 rounded-xl shadow-md p-6 text-center border-b-4 border-bdir-blue transition-all hover:shadow-xl">
+                <div class="bg-blue-50 rounded-xl shadow-md p-6 text-center border-b-4 border-bdir-blue transition-all hover:shadow-xl">
                     <div class="flex items-center justify-center h-12 w-12 rounded-full bg-bdir-blue text-white mx-auto mb-3">
                         <i data-lucide="cloud-sun" class="h-6 w-6"></i>
                     </div>
@@ -333,12 +303,11 @@
                         </li>
                     </ul>
                     <a href="#formulario" onclick="setPromo('Mid Dia')" class="mt-6 inline-block w-full py-2.5 px-4 rounded-md text-sm font-bold text-white bg-bdir-blue hover-bg-bdir-dark transition-colors">
-                        Información Mid Dia
+                        Información
                     </a>
                 </div>
 
-                <!-- Tarifa Nit -->
-                <div class="tariff-card bg-blue-50 rounded-xl shadow-md p-6 text-center border-b-4 border-bdir-blue transition-all hover:shadow-xl">
+                <div class="bg-blue-50 rounded-xl shadow-md p-6 text-center border-b-4 border-bdir-blue transition-all hover:shadow-xl">
                     <div class="flex items-center justify-center h-12 w-12 rounded-full bg-bdir-blue text-white mx-auto mb-3">
                         <i data-lucide="moon" class="h-6 w-6"></i>
                     </div>
@@ -355,12 +324,11 @@
                         </li>
                     </ul>
                     <a href="#formulario" onclick="setPromo('Nit')" class="mt-6 inline-block w-full py-2.5 px-4 rounded-md text-sm font-bold text-white bg-bdir-blue hover-bg-bdir-dark transition-colors">
-                        Información Nit
+                        Información
                     </a>
                 </div>
                 
-                <!-- Tarifa Cap de Setmana -->
-                <div class="tariff-card bg-blue-50 rounded-xl shadow-md p-6 text-center border-b-4 border-bdir-blue transition-all hover:shadow-xl">
+                <div class="bg-blue-50 rounded-xl shadow-md p-6 text-center border-b-4 border-bdir-blue transition-all hover:shadow-xl">
                     <div class="flex items-center justify-center h-12 w-12 rounded-full bg-bdir-blue text-white mx-auto mb-3">
                         <i data-lucide="calendar-days" class="h-6 w-6"></i>
                     </div>
@@ -377,20 +345,14 @@
                         </li>
                     </ul>
                     <a href="#formulario" onclick="setPromo('Cap de Setmana')" class="mt-6 inline-block w-full py-2.5 px-4 rounded-md text-sm font-bold text-white bg-bdir-blue hover-bg-bdir-dark transition-colors">
-                        Información Cap de Setmana
+                        Información
                     </a>
                 </div>
-            </div>
-            
-            <div class="mt-12 text-center text-gray-500 text-sm border-t pt-6">
-                <p data-i18n="tariffs_note">
-                    *Consulta las bases y condiciones específicas de cada tarifa en recepción. Todas las tarifas se pagan en cuota mensual.
-                </p>
             </div>
         </div>
     </section>
 
-    <!-- --- SOCIAL PROOF / TESTIMONIAL --- -->
+    <!-- TESTIMONIAL -->
     <section class="py-16 bg-[#F5F5F5]">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-lg text-gray-500 font-medium mb-8 italic" data-i18n="social_proof_intro">
@@ -410,7 +372,7 @@
                         <i data-lucide="star" class="h-6 w-6 text-yellow-400 fill-current"></i>
                     </div>
                     <blockquote class="text-xl text-gray-800 font-medium mb-6" data-i18n="testimonial_quote">
-                        "Las instalaciones son de 10, y el ambiente es inmejorable. Empecé con la tarifa Mid Dia y ahora me he pasado a la Full Day. Totalmente recomendable."
+                        "Las instalaciones son de 10, el ambiente es inmejorable. Totalmente recomendable."
                     </blockquote>
                     <div class="flex items-center justify-center space-x-4">
                         <div class="h-12 w-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-500 font-bold">
@@ -426,7 +388,7 @@
         </div>
     </section>
 
-    <!-- --- CTA FINAL --- -->
+    <!-- CTA FINAL -->
     <section class="relative py-20 bg-bdir-blue">
         <div class="absolute inset-0 overflow-hidden">
              <div class="absolute -top-24 -left-24 w-96 h-96 bg-white opacity-10 rounded-full mix-blend-overlay blur-3xl"></div>
@@ -437,7 +399,7 @@
                 No esperes más para empezar tu cambio.
             </h2>
             <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto" data-i18n="cta_final_desc">
-                Infórmate sin compromiso sobre nuestras promociones y planes. ¡Plazas limitadas en las tarifas horarias!
+                Infórmate sin compromiso sobre nuestras promociones y planes.
             </p>
             <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="inline-block bg-white py-4 px-10 border border-transparent rounded-md shadow-lg text-lg font-bold text-bdir-blue hover:bg-gray-50 transition-colors">
                 SOLICITAR INFORMACIÓN AHORA
@@ -445,7 +407,7 @@
         </div>
     </section>
 
-    <!-- --- FOOTER --- -->
+    <!-- FOOTER -->
     <footer class="bg-gray-900 border-t border-gray-700">
         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
@@ -455,29 +417,27 @@
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 text-gray-300 text-sm">
-                    <a href="https://www.google.com/maps/place/BDiR+Maresme/@41.5017127,2.3585388,17z/data=!3m2!4b1!5s0x12a4b6ca06a87c4f:0x3f1604cbb1de26a0!4m6!3m5!1s0x12a4b6c9f5bdc26f:0x30d3bea632480" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 hover:text-bdir-blue transition-colors group cursor-pointer">
-                        <i data-lucide="map-pin" class="h-5 w-5 text-bdir-blue group-hover:scale-110 transition-transform"></i>
+                    <a href="https://www.google.com/maps" target="_blank" class="flex items-center space-x-2 hover:text-bdir-blue transition-colors group">
+                        <i data-lucide="map-pin" class="h-5 w-5 text-bdir-blue"></i>
                         <span>Av. Pedrablanca S/N Local 7</span>
                     </a>
                     <div class="flex items-center space-x-2">
                         <i data-lucide="phone" class="h-5 w-5 text-bdir-blue"></i>
                         <span>93 754 87 47</span>
                     </div>
-                    <a id="whatsapp-link-footer" href="https://wa.me/34682334580?text=Quiero%20solicitar%20informaci%C3%B3n%20sobre%20las%20promociones%20de%20alta" target="_blank" class="flex items-center space-x-2 hover:text-bdir-blue transition-colors group cursor-pointer">
-                        <i data-lucide="message-circle" class="h-5 w-5 text-bdir-blue group-hover:scale-110 transition-transform"></i>
-                        <span class="font-semibold">682 334 580</span>
+                    <a id="whatsapp-link" href="https://wa.me/34682334580" target="_blank" class="flex items-center space-x-2 hover:text-bdir-blue transition-colors group">
+                        <i data-lucide="message-circle" class="h-5 w-5 text-bdir-blue"></i>
+                        <span>682 334 580</span>
                     </a>
                 </div>
             </div>
             
             <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
                 <div class="flex space-x-6 md:order-3 mt-4 md:mt-0 justify-center md:justify-end">
-                    <a href="https://www.facebook.com/bdirmaresme/?locale=es_ES" target="_blank" class="text-gray-300 hover:text-bdir-blue transition-colors">
-                        <span class="sr-only">Facebook</span>
+                    <a href="https://www.facebook.com/bdirmaresme" target="_blank" class="text-gray-300 hover:text-bdir-blue transition-colors">
                         <i data-lucide="facebook" class="h-6 w-6"></i>
                     </a>
-                    <a href="https://www.instagram.com/bdirmaresme/?hl=es" target="_blank" class="text-gray-300 hover:text-bdir-blue transition-colors">
-                        <span class="sr-only">Instagram</span>
+                    <a href="https://www.instagram.com/bdirmaresme" target="_blank" class="text-gray-300 hover:text-bdir-blue transition-colors">
                         <i data-lucide="instagram" class="h-6 w-6"></i>
                     </a>
                 </div>
@@ -495,30 +455,26 @@
         </div>
     </footer>
 
-    <!-- MODAL LEGAL -->
+    <!-- MODAL -->
     <div id="legalModal" class="modal-overlay fixed inset-0 hidden items-center justify-center p-4">
-        <div class="modal-content bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 sm:p-8">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 sm:p-8">
             <div class="flex justify-between items-start mb-4 border-b pb-3">
-                <h2 id="modalTitle" class="text-2xl font-bold text-gray-900">Aviso Legal</h2>
-                <button id="closeModalButton" onclick="closeModal()" class="text-gray-400 hover:text-gray-700 transition duration-150">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                <h2 id="modalTitle" class="text-2xl font-bold text-gray-900">Título</h2>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
-            <div id="modalContentContainer" class="text-sm text-gray-600 space-y-4">
-            </div>
+            <div id="modalContent" class="text-sm text-gray-600 space-y-4"></div>
             <div class="flex justify-end pt-6">
-                <button onclick="closeModal()" class="py-2 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 transition duration-150" data-i18n="modal_close_btn">
-                    Cerrar
-                </button>
+                <button onclick="closeModal()" class="py-2 px-4 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Cerrar</button>
             </div>
         </div>
     </div>
 
-    <!-- JAVASCRIPT COMPLETO -->
+    <!-- JAVASCRIPT COMPLETO Y CORREGIDO -->
     <script>
         const emailDestino = "cm.bdirmaresme@gmail.com";
         
-        // DICCIONARIO DE TRADUCCIONES COMPLETO
         const translations = {
             es: {
                 hero_title_1: "¡Las mejores tarifas del",
@@ -527,7 +483,6 @@
                 form_title: "¡Aprovecha nuestras promociones!",
                 form_subtitle: "Rellena el formulario y un asesor te informará sobre la promoción o la tarifa que más te convenga.",
                 label_contact_method: "¿Cómo prefieres que te contactemos?",
-                select_option: "— Selecciona una opción —",
                 option_phone: "Teléfono",
                 option_whatsapp: "WhatsApp",
                 option_email: "Email",
@@ -540,19 +495,19 @@
                 form_sending: "ENVIANDO...",
                 form_privacy: "Tu privacidad es importante. No compartiremos tus datos.",
                 success_title: "¡Solicitud Recibida!",
-                success_msg: "Un asesor se pondrá en contacto contigo para resolver todas tus dudas y ayudarte con el proceso de alta.",
+                success_msg: "Un asesor se pondrá en contacto contigo para resolver todas tus dudas.",
                 promo_tag: "¡OFERTA LIMITADA!",
-                bf_title_1: "Promo Anual BDiR: ",
+                bf_title_1: "Promo BDiR: ",
                 bf_title_2: "9 MESES + 3 GRATIS",
-                bf_subtitle: "Paga 9 meses y disfruta de 12 meses completos de acceso total. ¡Ahorra en tu cuota anual y empieza ya!",
+                bf_subtitle: "Paga 9 meses y disfruta de 12 meses completos de acceso total.",
                 bf_benefit_1_title: "12 Meses de Acceso",
-                bf_benefit_1_desc: "Obtén 25% de descuento y tres meses adicionales sin coste extra. ¡El mejor momento para empezar!",
+                bf_benefit_1_desc: "Obtén 25% de descuento y tres meses adicionales sin coste extra.",
                 bf_benefit_2_title: "Acceso Total (Full Day)",
-                bf_benefit_2_desc: "Accede a todas las instalaciones en cualquier horario, de lunes a domingo.",
+                bf_benefit_2_desc: "Accede a todas las instalaciones en cualquier horario.",
                 bf_benefit_3_title: "Actividades Dirigidas",
-                bf_benefit_3_desc: "Más de 40 actividades dirigidas (incluido Entrenamiento Funcional).",
+                bf_benefit_3_desc: "Más de 40 actividades dirigidas.",
                 tariffs_title: "O elige la tarifa que se ajusta a tu horario",
-                tariffs_subtitle: "Máxima flexibilidad para entrenar solo cuando lo necesitas, con precios más ajustados.",
+                tariffs_subtitle: "Máxima flexibilidad para entrenar solo cuando lo necesitas.",
                 tariff_morning_title: "Morning",
                 tariff_morning_time: "Lunes a Viernes: 6:30h - 11:00h<br>Fines de semana y festivos: 8:45h - 14:30h",
                 tariff_mid_title: "Mid Dia",
@@ -563,32 +518,29 @@
                 tariff_weekend_time: "Viernes: 15:00h - 22:30h<br>Fines de semana y festivos: 8:45h - 14:30h",
                 tariff_feat_gym: "Acceso a Sala Fitness.",
                 tariff_feat_activities: "Actividades Dirigidas incluidas.",
-                tariffs_note: "*Consulta las bases y condiciones específicas de cada tarifa en recepción. Todas las tarifas se pagan en cuota mensual.",
                 social_proof_intro: "\"Más que un gimnasio, una comunidad dedicada a tu bienestar.\"",
-                testimonial_quote: "\"Las instalaciones son de 10, y el ambiente es inmejorable. Empecé con la tarifa Mid Dia y ahora me he pasado a la Full Day. Totalmente recomendable.\"",
+                testimonial_quote: "\"Las instalaciones son de 10, el ambiente es inmejorable.\"",
                 cta_final_title: "No esperes más para empezar tu cambio.",
-                cta_final_desc: "Infórmate sin compromiso sobre nuestras promociones y planes. ¡Plazas limitadas en las tarifas horarias!",
+                cta_final_desc: "Infórmate sin compromiso sobre nuestras promociones y planes.",
                 footer_privacy: "Política de Privacidad",
                 footer_cookies: "Política de Cookies",
                 footer_legal: "Aviso Legal",
                 footer_rights: "&copy; 2025 BDiR Maresme. Todos los derechos reservados.",
                 whatsapp_message: "Quiero solicitar información sobre las promociones de alta",
-                modal_close_btn: "Cerrar",
                 modal_title_legal: "Aviso Legal",
                 modal_title_privacy: "Política de Privacidad",
                 modal_title_cookies: "Política de Cookies",
-                legal_notice_content: `<p class="text-base font-semibold text-gray-800">Aviso Legal de BDiR Maresme</p><p>En cumplimiento con la legislación vigente, BDiR Maresme informa de que el contenido de este sitio web es propiedad intelectual de la empresa.</p>`,
-                privacy_policy_content: `<h3 class="text-xl font-bold text-gray-900 mb-4">Política de Privacidad de BDiR Maresme</h3><p>Tratamos tus datos personales con confidencialidad. Los datos que recabamos se utilizan únicamente para gestionar tu solicitud de información y ponernos en contacto contigo.</p>`,
-                cookies_policy_content: `<h3 class="text-xl font-bold text-gray-900 mb-4">Política de Cookies de BDiR Maresme</h3><p>Este sitio utiliza cookies técnicas necesarias para el funcionamiento de la web. Puedes desactivarlas en la configuración de tu navegador.</p>`
+                legal_content: "<p>Contenido del aviso legal de BDiR Maresme.</p>",
+                privacy_content: "<p>Política de privacidad de BDiR Maresme.</p>",
+                cookies_content: "<p>Política de cookies de BDiR Maresme.</p>"
             },
             ca: {
                 hero_title_1: "Les millors tarifes de l'",
                 hero_title_2: "any ja són aquí!",
-                hero_subtitle: "Aprofita les nostres promocions especials d'alta i tarifes horàries per unir-te al centre esportiu més complet del Maresme.",
+                hero_subtitle: "Aprofita les nostres promocions especials d'alta i tarifes horàries.",
                 form_title: "Aprofita les nostres promocions!",
-                form_subtitle: "Omple el formulari i un assessor t'informarà sobre la promoció o la tarifa que més et convingui.",
+                form_subtitle: "Omple el formulari i un assessor t'informarà.",
                 label_contact_method: "Com prefereixes que et contactem?",
-                select_option: "— Selecciona una opció —",
                 option_phone: "Telèfon",
                 option_whatsapp: "WhatsApp",
                 option_email: "Email",
@@ -599,21 +551,21 @@
                 form_legal_link: "Termes Legals",
                 form_button: "VULL INFORMACIÓ D'ALTA! >>",
                 form_sending: "ENVIANT...",
-                form_privacy: "La teva privacitat és important. No compartirem les teves dades.",
+                form_privacy: "La teva privacitat és important.",
                 success_title: "Sol·licitud Rebuda!",
-                success_msg: "Un assessor es posarà en contacte amb tu per resoldre tots els teus dubtes.",
+                success_msg: "Un assessor es posarà en contacte amb tu.",
                 promo_tag: "OFERTA LIMITADA!",
-                bf_title_1: "Promo Anual BDiR: ",
+                bf_title_1: "Promo BDiR: ",
                 bf_title_2: "9 MESOS + 3 GRATIS",
-                bf_subtitle: "Paga 9 mesos i gaudeix de 12 mesos complets d'accés total.",
+                bf_subtitle: "Paga 9 mesos i gaudeix de 12 mesos complets.",
                 bf_benefit_1_title: "12 Mesos d'Accés",
-                bf_benefit_1_desc: "Gaudeix de tres mesos addicionals sense cost extra.",
+                bf_benefit_1_desc: "Obtén 3 mesos addicionals sense cost.",
                 bf_benefit_2_title: "Accés Total (Full Day)",
-                bf_benefit_2_desc: "Accedeix a totes les instal·lacions en qualsevol horari.",
+                bf_benefit_2_desc: "Accedeix a totes les instal·lacions.",
                 bf_benefit_3_title: "Activitats Dirigides",
                 bf_benefit_3_desc: "Més de 40 activitats dirigides.",
                 tariffs_title: "O tria la tarifa que s'ajusta al teu horari",
-                tariffs_subtitle: "Màxima flexibilitat per entrenar només quan ho necessites.",
+                tariffs_subtitle: "Màxima flexibilitat per entrenar.",
                 tariff_morning_title: "Morning",
                 tariff_morning_time: "Dilluns a Divendres: 6:30h - 11:00h<br>Fines de setmana i festius: 8:45h - 14:30h",
                 tariff_mid_title: "Mid Dia",
@@ -624,46 +576,31 @@
                 tariff_weekend_time: "Divendres: 15:00h - 22:30h<br>Fines de setmana i festius: 8:45h - 14:30h",
                 tariff_feat_gym: "Accés a Sala Fitness.",
                 tariff_feat_activities: "Activitats Dirigides incloses.",
-                tariffs_note: "*Consulta les bases de cada tarifa a recepció.",
                 social_proof_intro: "\"Més que un gimnàs, una comunitat dedicada al teu benestar.\"",
-                testimonial_quote: "\"Les instal·lacions són de 10. Vaig començar amb Mid Dia i ara me he passat a Full Day.\"",
-                cta_final_title: "No esperis més per començar el teu canvi.",
-                cta_final_desc: "Informa't sense compromís sobre les nostres promocions.",
+                testimonial_quote: "\"Les instal·lacions són de 10.\"",
+                cta_final_title: "No esperis més.",
+                cta_final_desc: "Informa't sense compromís.",
                 footer_privacy: "Política de Privacitat",
                 footer_cookies: "Política de Cookies",
                 footer_legal: "Avís Legal",
                 footer_rights: "&copy; 2025 BDiR Maresme. Tots els drets reservats.",
-                whatsapp_message: "Vull sol·licitar informació sobre les promocions d'alta",
-                modal_close_btn: "Tancar",
+                whatsapp_message: "Vull sol·licitar informació",
                 modal_title_legal: "Avís Legal",
                 modal_title_privacy: "Política de Privacitat",
                 modal_title_cookies: "Política de Cookies",
-                legal_notice_content: `<p class="text-base font-semibold text-gray-800">Avís Legal de BDiR Maresme</p><p>En compliment amb la legislació vigent, BDiR Maresme informa que el contingut d'aquest lloc web és propietat intel·lectual de l'empresa.</p>`,
-                privacy_policy_content: `<h3 class="text-xl font-bold text-gray-900 mb-4">Política de Privacitat de BDiR Maresme</h3><p>Tractem les teves dades personals amb confidencialitat. Les dades que recaptem s'utilitzen únicament per gestionar la teva sol·licitud.</p>`,
-                cookies_policy_content: `<h3 class="text-xl font-bold text-gray-900 mb-4">Política de Cookies de BDiR Maresme</h3><p>Aquest lloc utilitza cookies tècniques necessàries pel funcionament del web.</p>`
+                legal_content: "<p>Avís legal de BDiR Maresme.</p>",
+                privacy_content: "<p>Política de privacitat de BDiR Maresme.</p>",
+                cookies_content: "<p>Política de cookies de BDiR Maresme.</p>"
             }
         };
 
-        // FUNCIÓN CAMBIAR IDIOMA
+        // CAMBIAR IDIOMA
         function changeLanguage(lang) {
+            console.log('Cambiando a:', lang);
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key]; 
-                }
-            });
-
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang][key]) {
-                    el.placeholder = translations[lang][key];
-                }
-            });
-
-            document.querySelectorAll('#contact_method option[data-i18n]').forEach(option => {
-                const key = option.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    option.textContent = translations[lang][key];
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
                 }
             });
 
@@ -671,139 +608,116 @@
             document.getElementById('btn-ca').classList.toggle('active', lang === 'ca');
             document.documentElement.lang = lang;
             
-            const whatsappLink = document.getElementById('whatsapp-link-footer');
-            const message = translations[lang]['whatsapp_message'];
-            if (whatsappLink && message) {
-                const encodedMessage = encodeURIComponent(message);
-                whatsappLink.href = `https://wa.me/34682334580?text=${encodedMessage}`;
+            const whatsappLink = document.getElementById('whatsapp-link');
+            if (whatsappLink) {
+                const msg = encodeURIComponent(translations[lang].whatsapp_message);
+                whatsappLink.href = `https://wa.me/34682334580?text=${msg}`;
             }
-            
+
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
         }
 
-        // FUNCIÓN ACTUALIZAR CAMPOS DEL FORMULARIO
+        // ACTUALIZAR CAMPOS
         function updateContactFields(method) {
-            const fieldNombre = document.getElementById('fieldNombre');
-            const fieldTelefono = document.getElementById('fieldTelefono');
-            const fieldEmail = document.getElementById('fieldEmail');
+            const fields = {
+                'Telefono': ['fieldNombre', 'fieldTelefono'],
+                'WhatsApp': ['fieldNombre', 'fieldTelefono'],
+                'Email': ['fieldNombre', 'fieldEmail']
+            };
 
-            const inputNombre = document.getElementById('nombre');
-            const inputTelefono = document.getElementById('telefono');
-            const inputEmail = document.getElementById('email');
+            document.getElementById('fieldNombre').classList.add('hidden');
+            document.getElementById('fieldTelefono').classList.add('hidden');
+            document.getElementById('fieldEmail').classList.add('hidden');
 
-            // Ocultar todo
-            [fieldNombre, fieldTelefono, fieldEmail].forEach(d => d.classList.add('hidden'));
-            [inputNombre, inputTelefono, inputEmail].forEach(i => {
-                i.required = false;
-                i.disabled = true;
-            });
-
-            // Mostrar según el método
-            if (method === 'Telefono' || method === 'WhatsApp') {
-                fieldNombre.classList.remove('hidden');
-                inputNombre.required = true;
-                inputNombre.disabled = false;
-
-                fieldTelefono.classList.remove('hidden');
-                inputTelefono.required = true;
-                inputTelefono.disabled = false;
-            } else if (method === 'Email') {
-                fieldNombre.classList.remove('hidden');
-                inputNombre.required = true;
-                inputNombre.disabled = false;
-
-                fieldEmail.classList.remove('hidden');
-                inputEmail.required = true;
-                inputEmail.disabled = false;
+            if (fields[method]) {
+                fields[method].forEach(id => {
+                    document.getElementById(id).classList.remove('hidden');
+                });
             }
         }
 
-        // FUNCIÓN ESTABLECER PROMO
-        function setPromo(promoName) {
-            document.getElementById('promocion_interes').value = promoName;
-            document.getElementById('formulario').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // ESTABLECER PROMO
+        function setPromo(name) {
+            document.getElementById('promocion_interes').value = name;
+            document.getElementById('formulario').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // FUNCIÓN MODAL
+        // MODAL
         function openLegalModal(type) {
             const modal = document.getElementById('legalModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalContent = document.getElementById('modalContentContainer');
-            const currentLang = document.documentElement.lang || 'es';
+            const title = document.getElementById('modalTitle');
+            const content = document.getElementById('modalContent');
+            const lang = document.documentElement.lang || 'es';
 
-            let titleKey, contentKey;
-            if (type === 'legal') {
-                titleKey = 'modal_title_legal';
-                contentKey = 'legal_notice_content';
-            } else if (type === 'privacy') {
-                titleKey = 'modal_title_privacy';
-                contentKey = 'privacy_policy_content';
-            } else if (type === 'cookies') {
-                titleKey = 'modal_title_cookies';
-                contentKey = 'cookies_policy_content';
-            }
+            const titles = {
+                legal: translations[lang].modal_title_legal,
+                privacy: translations[lang].modal_title_privacy,
+                cookies: translations[lang].modal_title_cookies
+            };
 
-            modalTitle.textContent = translations[currentLang][titleKey];
-            modalContent.innerHTML = translations[currentLang][contentKey];
-            
+            const contents = {
+                legal: translations[lang].legal_content,
+                privacy: translations[lang].privacy_content,
+                cookies: translations[lang].cookies_content
+            };
+
+            title.textContent = titles[type] || 'Información';
+            content.innerHTML = contents[type] || '';
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-            
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            }
         }
 
         function closeModal() {
-            const modal = document.getElementById('legalModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.style.overflow = '';
+            document.getElementById('legalModal').classList.add('hidden');
+            document.getElementById('legalModal').classList.remove('flex');
         }
 
-        // FUNCIÓN ENVIAR FORMULARIO
+        // ENVIAR FORMULARIO
         async function submitForm(event) {
             event.preventDefault();
-            
-            const form = event.target;
-            const submitBtn = document.getElementById('submit-btn');
-            const btnSpan = submitBtn.querySelector('span');
-            const currentLang = document.documentElement.lang || 'es';
-            const originalText = translations[currentLang].form_button;
+            const btn = document.getElementById('submit-btn');
+            const span = btn.querySelector('span');
+            const lang = document.documentElement.lang || 'es';
+            const original = translations[lang].form_button;
 
-            submitBtn.disabled = true;
-            btnSpan.innerHTML = `<span class="spinner"></span> ${translations[currentLang].form_sending}`;
+            btn.disabled = true;
+            span.textContent = translations[lang].form_sending;
 
-            const formData = new FormData(form);
-            formData.append('Origen', 'Landing Promociones - BDiR Maresme');
-            formData.append('Idioma', currentLang);
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
 
             try {
                 const response = await fetch(`https://formsubmit.co/ajax/${emailDestino}`, {
-                    method: "POST",
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify(Object.fromEntries(formData))
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
                 });
 
-                const data = await response.json();
-                
-                if (data.success) {
+                if (response.ok) {
                     document.getElementById('form-view').classList.add('hidden');
                     document.getElementById('success-view').classList.remove('hidden');
                 } else {
-                    submitBtn.disabled = false;
-                    btnSpan.innerHTML = originalText;
-                    alert('Error al enviar. Inténtalo de nuevo.');
+                    btn.disabled = false;
+                    span.textContent = original;
+                    alert('Error al enviar');
                 }
-            } catch (error) {
-                submitBtn.disabled = false;
-                btnSpan.innerHTML = originalText;
-                alert('Error de conexión. Inténtalo de nuevo.');
+            } catch (e) {
+                btn.disabled = false;
+                span.textContent = original;
+                alert('Error de conexión');
             }
         }
 
         // INICIALIZAR
-        document.addEventListener('DOMContent
+        document.addEventListener('DOMContentLoaded', () => {
+            changeLanguage('es');
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
+
+</body>
+</html>
